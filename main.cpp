@@ -8,27 +8,30 @@
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
 
+struct Vertex {
+    float x;
+    float y;
+};
+
 void processInput(GLFWwindow* window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 }
 
-void drawLine() // Fonction de test
+void drawTriangle(const Vertex& v1, const Vertex& v2, const Vertex& v3) // Fonction de test
 {
-    glBegin(GL_LINES);
-    glColor3f(1.0f, 0.0f, 0.0f);
-    glVertex2f(0.0f, 0.1f);
-    glVertex2f(0.0f, 0.5f);
+    glBegin(GL_TRIANGLES);
+        glColor3f(1.0f, 0.0f, 0.0f);
+        glVertex2f(v1.x, v1.y); // Sommet supérieur
+        glVertex2f(v2.x, v2.y); // Sommet inférieur gauche
+        glVertex2f(v3.x, v3.y); // Sommet inférieur droit
     glEnd();
 }
 
-void render_loop() // Fonction de test
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
-    glBegin(GL_LINES);
-    glVertex2f(0, 10);
-    glVertex3f(1880.0, 20.0, 0.0);
-    glEnd();
+    glViewport(0, 0, width, height);
 }
 
 int main()
@@ -49,22 +52,13 @@ int main()
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
+        glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-        drawLine();
+        drawTriangle({ 0.0, 0.5 }, { -0.5, -0.5 }, { 0.5, -0.5 });
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
-
-    // faire class Render
-    // 
-    // faire class Draw
-    //       shape DrawShape()
-    //            return new shape();
-    //
-    //       Pense...
-    // 
-    // faire class Shape
 
     glfwDestroyWindow(window);
     glfwTerminate();
