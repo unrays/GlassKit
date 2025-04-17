@@ -1,37 +1,37 @@
 # Security Policy
 
-Thank you for helping keep this project secure.
+Thanks for helping keep this project secure!
 
-If you discover a security vulnerability or have a security concern, **please do not disclose it publicly**.  
-Instead, reach out directly to me via email at:  
+If you find any security issues, **please don’t share them publicly**.  
+Instead, just send me an email at:  
 **info@lunary.ca**
 
-I take security seriously and will investigate any issues as quickly as possible. Here's how I handle vulnerabilities:
+I’ll take a look and fix it as quickly as possible. Here’s what I’ll do:
 
-1. **Acknowledgment**: I will acknowledge receipt of your report within 48 hours.
-2. **Investigation**: I will review the issue, assess its severity, and begin working on a solution.
-3. **Resolution**: I will release a fix as soon as possible and notify you once it's resolved.
+1. **Acknowledge**: I’ll confirm I got your report within 48 hours.
+2. **Investigate**: I’ll check out the issue, figure out how serious it is, and start working on a fix.
+3. **Resolve**: I’ll release a fix as soon as I can and let you know when it’s done.
 
 ## Supported Versions
 
-I mainly focus on the latest version of the project. Please use the most recent release to benefit from security updates and fixes.
+I mostly focus on the latest version of the project. Please use the most up-to-date version to stay secure.
 
 ## Security Updates
 
-Critical security vulnerabilities will be patched as soon as they are identified. For less critical issues, I will release fixes in the next project update.
+Critical security problems will be fixed as soon as I spot them. For smaller issues, I’ll add fixes in the next update.
 
-## Reporting Guidelines
+## Reporting Tips
 
-- Please include as much detail as possible, including how to reproduce the issue if applicable.
-- Avoid sharing sensitive information (e.g., passwords) in your report.
-- If possible, provide context about your environment (OS, libraries, etc.).
+- Please include as much detail as you can, like how to reproduce the issue if possible.
+- Don’t share sensitive info (like passwords) in your report.
+- If you can, let me know about your setup (OS, libraries, etc.).
 
 ## Best Practices
 
-- Always keep your dependencies updated.
-- Use secure coding practices and avoid hardcoding sensitive information.
-- If applicable, use encryption and strong authentication mechanisms for sensitive data.
+- Always update your dependencies.
+- Follow secure coding practices and avoid hardcoding sensitive info.
+- Use encryption and strong authentication for sensitive data when needed.
 
 ## Thank You
 
-Your effort to make this project more secure is truly appreciated. Together, we can help ensure that this project remains safe for everyone using it.
+Thanks again for helping keep this project safe!
