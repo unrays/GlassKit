@@ -3,8 +3,7 @@
 Thanks for helping keep this project secure!
 
 If you find any security issues, **please don’t share them publicly**.  
-Instead, just send me an email at:  
-**info@lunary.ca**
+Instead, just send me an email at: **f@lunary.ca**
 
 I’ll take a look and fix it as quickly as possible. Here’s what I’ll do:
 
