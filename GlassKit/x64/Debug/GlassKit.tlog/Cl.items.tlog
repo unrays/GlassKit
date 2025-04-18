@@ -1,2 +1,4 @@
 C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glad\src\glad.c;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\glad.obj
-C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\main.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\main.obj
+C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\main.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\main.obj
+C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\tools\FramerateCounter.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\FramerateCounter.obj
+C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\tools\Timer.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\Timer.obj

@@ -71,11 +71,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glad\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glad\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\lib-vc2022;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glad\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glad\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\lib-vc2022;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -138,7 +138,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="lib\glad\src\glad.c" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\tools\FramerateCounter.cpp" />
+    <ClCompile Include="src\tools\Timer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\graphics\Coord.h" />
+    <ClInclude Include="include\graphics\Vertex.h" />
+    <ClInclude Include="include\tools\FramerateCounter.h" />
+    <ClInclude Include="include\tools\Timer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

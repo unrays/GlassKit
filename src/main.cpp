@@ -1,16 +1,26 @@
 // Copyright (c) 2025 Félix-Olivier Dumas. All rights reserved.
 // Licensed under the MIT License. See LICENSE for details.
 
-#include <unordered_map>
-#include <string>
-#include <vector>
-#include <iostream>
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
+#include <iostream>
+#include <string>
+#include <unordered_map>
+#include <vector>
 
-struct Vertex {
-    float x;
-    float y;
+#include "tools/Timer.h"
+#include "tools/FramerateCounter.h"
+#include "graphics/Coord.h"
+#include "graphics/Vertex.h"
+
+struct window { // Reformuler en classe...
+    int width;
+    int height;
+    /* ... */
+};
+
+struct config { // Reformuler en classe...
+
 };
 
 void processInput(GLFWwindow* window)
@@ -34,27 +44,71 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
+void checkGLFW()
+{
+
+}
+
+void render() {
+
+}
+
+
+
+//std::unique_ptr<Timer> runtimeDuration = nullptr;
+std::unique_ptr<FramerateCounter> framerate = nullptr;
+
+void initializeEnvironment() {
+    //runtimeDuration = std::make_unique<Timer>();
+    framerate = std::make_unique<FramerateCounter>();
+}
+
+GLFWwindow* initializeWindow()
+{
+    return glfwCreateWindow(800, 600, "OpenGL Engine", nullptr, nullptr);
+}
+
 int main()
 {
-    std::unordered_map<std::string, int> render_queue; // Remplacer int par une type plus globalisé
-
     if (!glfwInit()) return -1;
+
+    auto runtimeDuration = new Timer();
+
+    runtimeDuration->start();
+
+    initializeEnvironment();
+
+    //std::unordered_map<std::string, int> render_queue;
 
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 
-    GLFWwindow* window = glfwCreateWindow(800, 600, "OpenGL Engine", nullptr, nullptr);
+    GLFWwindow* window = initializeWindow();
     if (!window) { glfwTerminate(); return -1; }
 
     glfwMakeContextCurrent(window);
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
-        glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-
+        
         drawTriangle({ 0.0, 0.5 }, { -0.5, -0.5 }, { 0.5, -0.5 });
+
+        system("cls");
+
+        framerate->calculateFramerate();
+        framerate->displayFramerate();
+
+
+
+
+
+
+
+
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -62,6 +116,10 @@ int main()
 
     glfwDestroyWindow(window);
     glfwTerminate();
+
+    runtimeDuration->stop();
+
+    std::cout << "[DEBUG] Total execution time: " << runtimeDuration->elapsedTime().count() << " ms";
 
     return 0;
 }
