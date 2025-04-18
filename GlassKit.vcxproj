@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glad\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\lib-vc2022;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\GlassKit\include;..\GlassKit\lib\glfw\glfw-3.4\include;..\GlassKit\lib\glad\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\GlassKit\lib\glfw\glfw-3.4\lib-vc2022;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glad\include;$(IncludePath)</IncludePath>
@@ -112,11 +112,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\lib-vc2022\glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\GlassKit\lib\glfw\glfw-3.4\lib-vc2022\glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -138,6 +139,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="lib\glad\src\glad.c" />
+    <ClCompile Include="src\graphics\Shape.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\tools\FramerateCounter.cpp" />
     <ClCompile Include="src\tools\Timer.cpp" />
@@ -145,6 +147,7 @@
   <ItemGroup>
     <ClInclude Include="include\core\Color.h" />
     <ClInclude Include="include\core\Coord.h" />
+    <ClInclude Include="include\graphics\Shape.h" />
     <ClInclude Include="include\graphics\Vertex.h" />
     <ClInclude Include="include\tools\FramerateCounter.h" />
     <ClInclude Include="include\tools\Timer.h" />

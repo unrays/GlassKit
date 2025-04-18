@@ -11,6 +11,7 @@
 #include "core/Color.h"
 #include "core/Coord.h"
 #include "graphics/Vertex.h"
+#include "graphics/Shape.h"
 #include "tools/FramerateCounter.h"
 #include "tools/Timer.h"
 
@@ -32,12 +33,12 @@ void processInput(GLFWwindow* window)
 
 void drawTriangle(const Vertex& v1, const Vertex& v2, const Vertex& v3, const Color& c) // Fonction de test
 {
-    glBegin(GL_TRIANGLES);
-        glColor3f(1.0f, 1.0f, 1.0f);
-        glVertex2f(v1.x, v1.y); // Sommet supérieur
-        glVertex2f(v2.x, v2.y); // Sommet inférieur gauche
-        glVertex2f(v3.x, v3.y); // Sommet inférieur droit
-    glEnd();
+    //glBegin(GL_TRIANGLES);
+    //    glColor3f(1.0f, 1.0f, 1.0f);
+    //    glVertex2f(v1.x, v1.y); // Sommet supérieur
+    //    glVertex2f(v2.x, v2.y); // Sommet inférieur gauche
+    //    glVertex2f(v3.x, v3.y); // Sommet inférieur droit
+    //glEnd();
 }
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -67,6 +68,8 @@ GLFWwindow* initializeWindow()
     return glfwCreateWindow(800, 600, "OpenGL Engine", nullptr, nullptr);
 }
 
+std::vector<Shape> Shapes;
+
 int main()
 {
     if (!glfwInit()) return -1;
@@ -79,8 +82,10 @@ int main()
 
     //std::unordered_map<std::string, int> render_queue;
 
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+    glfwInit();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     //glEnable(GL_DEPTH_TEST);
     //glDepthFunc(GL_LEQUAL); // pour 3d
@@ -93,16 +98,60 @@ int main()
 
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
+
+    /* ========================================= */
+    
+    Shape s1;
+    Shape s2;
+
+    s1.setVertices({
+        Vertex(0.0f, 0.5f),
+        Vertex(-0.5f, -0.5f),
+        Vertex(0.5f, -0.5f)
+    });
+
+    s1.initializeShape();
+
+    s2.setVertices({
+        Vertex(1.0f, 0.5f),
+        Vertex(0.5f, -0.5f),
+        Vertex(1.5f, -0.5f)
+    });
+
+    s2.initializeShape();
+
+    /*unsigned int VBO, VAO;
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
+
+    glBindVertexArray(VAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);*/
+
+    /* ========================================= */
+
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
-        
-        drawTriangle({ 0.0, 0.5 }, { -0.5, -0.5 }, { 0.5, -0.5 }, { 1.0, 1.0, 1.0 });
 
-        system("cls");
+        glClear(GL_COLOR_BUFFER_BIT);
+        
+        //drawTriangle({ 0.0, 0.5 }, { -0.5, -0.5 }, { 0.5, -0.5 }, { 1.0, 1.0, 1.0 });
+
+        //system("cls");
+
+        //glfwSwapInterval(1); // V-Sync
 
         framerate->calculateFramerate();
         framerate->displayFramerate();
+
+        s1.drawShape();
+        s2.drawShape();
+
 
         glfwSwapBuffers(window);
         glfwPollEvents();

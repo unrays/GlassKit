@@ -13,9 +13,13 @@ void FramerateCounter::calculateFramerate() {
 	_currentFrameTiming = glfwGetTime();
 
 	_deltaFrameTiming = _currentFrameTiming - _previousFrameTiming;
-	_framesPerSecond = (1000 / _deltaFrameTiming);
+	_framesPerSecond = 1.0 / _deltaFrameTiming;
+	_accumulator += _deltaFrameTiming;
 }
 
 void FramerateCounter::displayFramerate() {
+	if (_accumulator < 1.0) return;
+
 	std::cout << "[DEBUG] " << _framesPerSecond << " fps" << std::endl;
+	_accumulator = 0;
 }
