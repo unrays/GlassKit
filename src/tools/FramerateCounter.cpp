@@ -14,12 +14,12 @@ void FramerateCounter::calculateFramerate() {
 
 	_deltaFrameTiming = _currentFrameTiming - _previousFrameTiming;
 	_framesPerSecond = 1.0 / _deltaFrameTiming;
-	_accumulator += _deltaFrameTiming;
+	_frameAccumulator += _deltaFrameTiming;
 }
 
 void FramerateCounter::displayFramerate() {
-	if (_accumulator < 1.0) return;
+	if (_frameAccumulator < 1.0) return;
 
 	std::cout << "[DEBUG] " << std::round(_framesPerSecond) << " fps" << std::endl;
-	_accumulator = 0;
+	_frameAccumulator = 0;
 }

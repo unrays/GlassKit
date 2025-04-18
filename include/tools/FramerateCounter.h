@@ -11,7 +11,7 @@ class FramerateCounter {
 		double _currentFrameTiming;
 		double _deltaFrameTiming;
 		double _framesPerSecond;
-		double _accumulator;
+		double _frameAccumulator;
 
 	public:
 		void calculateFramerate();
