@@ -8,11 +8,11 @@
 #include <unordered_map>
 #include <vector>
 
-#include "tools/Timer.h"
-#include "tools/FramerateCounter.h"
+#include "core/Color.h"
 #include "core/Coord.h"
 #include "graphics/Vertex.h"
-#include "core/Color.h"
+#include "tools/FramerateCounter.h"
+#include "tools/Timer.h"
 
 struct window { // Reformuler en classe...
     int width;
