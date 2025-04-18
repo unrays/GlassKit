@@ -12,6 +12,7 @@
 #include "tools/FramerateCounter.h"
 #include "graphics/Coord.h"
 #include "graphics/Vertex.h"
+#include "graphics/Color.h"
 
 struct window { // Reformuler en classe...
     int width;
@@ -29,10 +30,10 @@ void processInput(GLFWwindow* window)
         glfwSetWindowShouldClose(window, true);
 }
 
-void drawTriangle(const Vertex& v1, const Vertex& v2, const Vertex& v3) // Fonction de test
+void drawTriangle(const Vertex& v1, const Vertex& v2, const Vertex& v3, const Color& c) // Fonction de test
 {
     glBegin(GL_TRIANGLES);
-        glColor3f(1.0f, 0.0f, 0.0f);
+        glColor3f(1.0f, 1.0f, 1.0f);
         glVertex2f(v1.x, v1.y); // Sommet supérieur
         glVertex2f(v2.x, v2.y); // Sommet inférieur gauche
         glVertex2f(v3.x, v3.y); // Sommet inférieur droit
@@ -52,8 +53,6 @@ void checkGLFW()
 void render() {
 
 }
-
-
 
 //std::unique_ptr<Timer> runtimeDuration = nullptr;
 std::unique_ptr<FramerateCounter> framerate = nullptr;
@@ -83,6 +82,9 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 
+    //glEnable(GL_DEPTH_TEST);
+    //glDepthFunc(GL_LEQUAL); // pour 3d
+
     GLFWwindow* window = initializeWindow();
     if (!window) { glfwTerminate(); return -1; }
 
@@ -95,20 +97,12 @@ int main()
     {
         processInput(window);
         
-        drawTriangle({ 0.0, 0.5 }, { -0.5, -0.5 }, { 0.5, -0.5 });
+        drawTriangle({ 0.0, 0.5 }, { -0.5, -0.5 }, { 0.5, -0.5 }, { 1.0, 1.0, 1.0 });
 
         system("cls");
 
         framerate->calculateFramerate();
         framerate->displayFramerate();
-
-
-
-
-
-
-
-
 
         glfwSwapBuffers(window);
         glfwPollEvents();
