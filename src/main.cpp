@@ -152,7 +152,6 @@ int main()
         s1.drawShape();
         s2.drawShape();
 
-
         glfwSwapBuffers(window);
         glfwPollEvents();
     }

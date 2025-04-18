@@ -20,6 +20,6 @@ void FramerateCounter::calculateFramerate() {
 void FramerateCounter::displayFramerate() {
 	if (_accumulator < 1.0) return;
 
-	std::cout << "[DEBUG] " << _framesPerSecond << " fps" << std::endl;
+	std::cout << "[DEBUG] " << std::round(_framesPerSecond) << " fps" << std::endl;
 	_accumulator = 0;
 }
