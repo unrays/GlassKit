@@ -38,10 +38,10 @@
     <ClInclude Include="include\graphics\Vertex.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="include\graphics\Coord.h">
+    <ClInclude Include="include\core\Coord.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="include\graphics\Color.h">
+    <ClInclude Include="include\core\Color.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

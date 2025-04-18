@@ -143,8 +143,8 @@
     <ClCompile Include="src\tools\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\graphics\Color.h" />
-    <ClInclude Include="include\graphics\Coord.h" />
+    <ClInclude Include="include\core\Color.h" />
+    <ClInclude Include="include\core\Coord.h" />
     <ClInclude Include="include\graphics\Vertex.h" />
     <ClInclude Include="include\tools\FramerateCounter.h" />
     <ClInclude Include="include\tools\Timer.h" />

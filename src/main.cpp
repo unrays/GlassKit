@@ -10,9 +10,9 @@
 
 #include "tools/Timer.h"
 #include "tools/FramerateCounter.h"
-#include "graphics/Coord.h"
+#include "core/Coord.h"
 #include "graphics/Vertex.h"
-#include "graphics/Color.h"
+#include "core/Color.h"
 
 struct window { // Reformuler en classe...
     int width;
