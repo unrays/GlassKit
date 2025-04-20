@@ -139,6 +139,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="lib\glad\src\glad.c" />
+    <ClCompile Include="src\core\Coord.cpp" />
     <ClCompile Include="src\graphics\Shape.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\tools\FramerateCounter.cpp" />

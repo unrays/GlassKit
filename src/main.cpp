@@ -105,10 +105,26 @@ int main()
     Shape s2;
 
     s1.setVertices({
-        Vertex(0.0f, 0.5f),
-        Vertex(-0.5f, -0.5f),
-        Vertex(0.5f, -0.5f)
-    });
+    Vertex(Coord(0.0f, 0.0f)), // centre
+
+    Vertex(Coord(0.0f, 0.5f)),     // pointe en haut
+    Vertex(Coord(0.118f, 0.154f)), // creux haut droit
+
+    Vertex(Coord(0.475f, 0.154f)), // pointe droite
+    Vertex(Coord(0.191f, -0.059f)),// creux bas droit
+
+    Vertex(Coord(0.293f, -0.404f)),// pointe bas droite
+    Vertex(Coord(0.0f, -0.2f)),    // creux bas
+
+    Vertex(Coord(-0.293f, -0.404f)),// pointe bas gauche
+    Vertex(Coord(- 0.191f, -0.059f)),// creux bas gauche
+
+    Vertex(Coord(- 0.475f, 0.154f)), // pointe gauche
+    Vertex(Coord(- 0.118f, 0.154f)), // creux haut gauche
+
+    Vertex(Coord(0.0f, 0.5f))       // boucle
+        });
+
 
     s1.initializeShape();
 
@@ -150,7 +166,7 @@ int main()
         framerate->displayFramerate();
 
         s1.drawShape();
-        s2.drawShape();
+        //s2.drawShape();
 
         glfwSwapBuffers(window);
         glfwPollEvents();
