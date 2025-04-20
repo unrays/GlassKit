@@ -178,7 +178,15 @@ int main()
 
 
         test(s1, offset);
-        offset += 0.0025f;
+
+        if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+            offset += 0.0025f;
+        }
+        else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+            offset -= 0.0025f;
+        }
+
+
 
         s1.initializeShape();
 
