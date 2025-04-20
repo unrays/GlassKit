@@ -3,10 +3,8 @@
 
 #pragma once
 
-class Coord { 
-public:
+struct Coord { 
 	float _x, _y, _z;
 
 	Coord(float x = 0.0f, float y = 0.0f, float z = 0.0f) : _x(x), _y(y), _z(z) {}
-	float calculateDistance(const Coord& pointA, const Coord& pointB);
 };

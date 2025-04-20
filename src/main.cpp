@@ -55,6 +55,15 @@ void render() {
 
 }
 
+void test(Shape& s1, float offset) {
+    s1.setVertices({
+        Vertex(Coord(0.5f + offset/100, 0.0f + offset / 100)),
+        Vertex(Coord(0.0f, 0.5f + offset / 100)),
+        Vertex(Coord(0.5f + offset / 100, 0.5f + offset / 100))
+
+        });
+}
+
 //std::unique_ptr<Timer> runtimeDuration = nullptr;
 std::unique_ptr<FramerateCounter> framerate = nullptr;
 
@@ -104,29 +113,29 @@ int main()
     Shape s1;
     Shape s2;
 
-    s1.setVertices({
-    Vertex(Coord(0.0f, 0.0f)), // centre
+    //s1.setVertices({
+    //Vertex(Coord(0.0f, 0.0f)), // centre
 
-    Vertex(Coord(0.0f, 0.5f)),     // pointe en haut
-    Vertex(Coord(0.118f, 0.154f)), // creux haut droit
+    //Vertex(Coord(0.0f, 0.5f)),     // pointe en haut
+    //Vertex(Coord(0.118f, 0.154f)), // creux haut droit
 
-    Vertex(Coord(0.475f, 0.154f)), // pointe droite
-    Vertex(Coord(0.191f, -0.059f)),// creux bas droit
+    //Vertex(Coord(0.475f, 0.154f)), // pointe droite
+    //Vertex(Coord(0.191f, -0.059f)),// creux bas droit
 
-    Vertex(Coord(0.293f, -0.404f)),// pointe bas droite
-    Vertex(Coord(0.0f, -0.2f)),    // creux bas
+    //Vertex(Coord(0.293f, -0.404f)),// pointe bas droite
+    //Vertex(Coord(0.0f, -0.2f)),    // creux bas
 
-    Vertex(Coord(-0.293f, -0.404f)),// pointe bas gauche
-    Vertex(Coord(- 0.191f, -0.059f)),// creux bas gauche
+    //Vertex(Coord(-0.293f, -0.404f)),// pointe bas gauche
+    //Vertex(Coord(- 0.191f, -0.059f)),// creux bas gauche
 
-    Vertex(Coord(- 0.475f, 0.154f)), // pointe gauche
-    Vertex(Coord(- 0.118f, 0.154f)), // creux haut gauche
+    //Vertex(Coord(- 0.475f, 0.154f)), // pointe gauche
+    //Vertex(Coord(- 0.118f, 0.154f)), // creux haut gauche
 
-    Vertex(Coord(0.0f, 0.5f))       // boucle
-        });
+    //Vertex(Coord(0.0f, 0.5f))       // boucle
+    //    });
 
 
-    s1.initializeShape();
+    //s1.initializeShape();
 
     s2.setVertices({
         Vertex(1.0f, 0.5f),
@@ -150,6 +159,8 @@ int main()
 
     /* ========================================= */
 
+    static float offset = 0;
+
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
@@ -164,6 +175,12 @@ int main()
 
         framerate->calculateFramerate();
         framerate->displayFramerate();
+
+
+        test(s1, offset);
+        offset += 0.0025f;
+
+        s1.initializeShape();
 
         s1.drawShape();
         //s2.drawShape();
