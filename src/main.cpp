@@ -55,12 +55,15 @@ void render() {
 
 }
 
-void test(Shape& s1, float offset) {
-    s1.setVertices({
-        Vertex(Coord(0.5f + offset/100, 0.0f + offset / 100)),
-        Vertex(Coord(0.0f, 0.5f + offset / 100)),
-        Vertex(Coord(0.5f + offset / 100, 0.5f + offset / 100))
+void test(Shape& s1, float &offsetX, float &offsetY) {
+    offsetX / 100000.0f;
+    offsetY / 100000.0f;
 
+    s1.setVertices({
+        Vertex(Coord(0.020f + offsetX, 0.020f + offsetY)),
+        Vertex(Coord(0.020f + offsetX, -0.020f + offsetY)),
+        Vertex(Coord(-0.020f + offsetX, -0.020f + offsetY)),
+        Vertex(Coord(-0.020f + offsetX, 0.020f + offsetY))
         });
 }
 
@@ -159,7 +162,8 @@ int main()
 
     /* ========================================= */
 
-    static float offset = 0;
+    static float offsetX = 0;
+    static float offsetY = 0;
 
     while (!glfwWindowShouldClose(window))
     {
@@ -177,14 +181,24 @@ int main()
         framerate->displayFramerate();
 
 
-        test(s1, offset);
+        
 
         if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
-            offset += 0.0025f;
+            offsetY += 0.00025;
         }
         else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
-            offset -= 0.0025f;
+            offsetY -= 0.00025;
         }
+        else if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
+            offsetX += 0.00025;
+        }
+        else if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
+            offsetX -= 0.00025;
+        } 
+
+        test(s1, offsetX, offsetY);
+
+        // Faire une classe INPUT qui compartimente la logique
 
 
 
