@@ -15,6 +15,7 @@
 #include "tools/FramerateCounter.h"
 #include "tools/Timer.h"
 #include "input/InputManager.h"
+#include <core/Clock.h>
 
 struct window { // Reformuler en classe...
     int width;
@@ -98,7 +99,7 @@ int main()
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
 
     //glEnable(GL_DEPTH_TEST);
     //glDepthFunc(GL_LEQUAL); // pour 3d
@@ -141,6 +142,7 @@ int main()
 
     //s1.initializeShape();
 
+
     s2.setVertices({
         Vertex(1.0f, 0.5f),
         Vertex(0.5f, -0.5f),
@@ -169,9 +171,15 @@ int main()
     InputManager inputManager;
     glfwSetWindowUserPointer(window, &inputManager);
     
+    Clock clock;
+    const float speed = 0.5f;
 
     while (!glfwWindowShouldClose(window))
     {
+        clock.update();
+
+        double dt = clock.deltaTime();
+
         processInput(window);
 
         glClear(GL_COLOR_BUFFER_BIT);
@@ -180,7 +188,7 @@ int main()
 
         //system("cls");
 
-        glfwSwapInterval(1); // V-Sync
+        glfwSwapInterval(0); // V-Sync
 
         framerate->calculateFramerate();
         framerate->displayFramerate();
@@ -209,12 +217,12 @@ int main()
         } */
 
         if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
-            offsetY += 0.0025;
-            offsetX += 0.0025;
+            offsetY += speed * dt;
+            offsetX += speed * dt;
         }
         else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
-            offsetY -= 0.0025;
-            offsetX -= 0.0025;
+            offsetY -= speed * dt;
+            offsetX -= speed * dt;
         }
 
         test(s1, offsetX, offsetY);

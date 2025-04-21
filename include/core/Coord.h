@@ -2,9 +2,13 @@
 // Licensed under the MIT License. See LICENSE for details.
 
 #pragma once
+#include <array>
+
+constexpr enum Axis : size_t {X = 0, Y = 1, Z = 2};
+constexpr std::array<GLfloat, 3> DEFAULT_COORDINATE = { 0.0f, 0.0f, 0.0f };
 
 struct Coord { 
-	float _x, _y, _z;
+	GLfloat _x, _y, _z;
 
-	Coord(float x = 0.0f, float y = 0.0f, float z = 0.0f) : _x(x), _y(y), _z(z) {}
+	Coord(float x = DEFAULT_COORDINATE[X], float y = DEFAULT_COORDINATE[Y], float z = DEFAULT_COORDINATE[Z]) : _x(x), _y(y), _z(z) {}
 };

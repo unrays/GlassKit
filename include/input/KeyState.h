@@ -10,7 +10,7 @@ enum class KeyState {
     Unknown
 };
 
-inline KeyState convertToState(int& state) {
+inline KeyState convertKeyStateToEnum(int& state) {
     switch (state) {
         case GLFW_PRESS:   return KeyState::Pressed;
         case GLFW_RELEASE: return KeyState::Released;

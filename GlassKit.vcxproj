@@ -139,6 +139,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="lib\glad\src\glad.c" />
+    <ClCompile Include="src\core\Clock.cpp" />
+    <ClCompile Include="src\core\Config.cpp" />
+    <ClCompile Include="src\core\Language.cpp" />
+    <ClCompile Include="src\core\Resolution.cpp" />
     <ClCompile Include="src\graphics\Shape.cpp" />
     <ClCompile Include="src\input\InputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -146,8 +150,14 @@
     <ClCompile Include="src\tools\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\core\Clock.h" />
     <ClInclude Include="include\core\Color.h" />
+    <ClInclude Include="include\core\Config.h" />
     <ClInclude Include="include\core\Coord.h" />
+    <ClInclude Include="include\core\Language.h" />
+    <ClInclude Include="include\core\Resolution.h" />
+    <ClInclude Include="include\database\LanguageMap.h" />
+    <ClInclude Include="include\graphics\RenderEngine.h" />
     <ClInclude Include="include\graphics\Shape.h" />
     <ClInclude Include="include\graphics\Vertex.h" />
     <ClInclude Include="include\input\InputManager.h" />

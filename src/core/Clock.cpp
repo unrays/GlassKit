@@ -1,0 +1,13 @@
+// Copyright (c) 2025 Félix-Olivier Dumas. All rights reserved.
+// Licensed under the MIT License. See LICENSE for details.
+
+#pragma once
+#include "core/Clock.h"
+
+void Clock::update() {
+	double current = glfwGetTime();
+	_deltaTime = current - _lastTime;
+	_lastTime = current;
+}
+
+double Clock::deltaTime() { return _deltaTime; }

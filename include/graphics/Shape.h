@@ -9,8 +9,8 @@
 
 class Shape {
     private:
-	    unsigned int _VBO, _VAO;
-	    int _vertexCount;
+	    GLuint _VBO, _VAO;
+        GLuint _vertexCount;
 
         std::vector<Vertex> _vertices;
 

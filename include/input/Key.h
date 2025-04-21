@@ -13,5 +13,5 @@ struct Key {
     KeyMap _key;
     KeyState _state;
 
-    Key(int& key, int& action) : _key(convertToKey(key)), _state(convertToState(action)) {};
+    Key(int& key, int& action) : _key(convertToKey(key)), _state(convertKeyStateToEnum(action)) {};
 };
