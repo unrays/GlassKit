@@ -4,6 +4,8 @@
 #pragma once
 #include "core/Language.h"
 
-void Language::ChangeLanguage(LanguageMap newLanguage) { _language = newLanguage; }
+void Language::changeLanguage(LanguageMap newLanguage) { _language = newLanguage; }
 
 std::string Language::toString() { return ConvertLanguageToString(_language); }
+
+LanguageMap Language::getLanguageEnum() { return _language; }

@@ -12,6 +12,8 @@ class Language {
 		Language(LanguageMap language) : _language(language) {};
 		Language(std::string language) : _language(ConvertLanguageToEnum(language)) {};
 
-		void ChangeLanguage(LanguageMap newLanguage);
+		void changeLanguage(LanguageMap newLanguage);
 		std::string toString();
+
+		LanguageMap getLanguageEnum();
 };

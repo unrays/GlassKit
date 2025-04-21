@@ -4,8 +4,6 @@
 #pragma once
 #include "core/Config.h"
 
-void Config::editResolution(uint16_t width, uint16_t height, uint16_t refreshRate) {
-	_resolution.editResolution(width, height, refreshRate);
-}
+void Config::editResolution(uint16_t width, uint16_t height, uint16_t refreshRate) { _resolution.editResolution(width, height, refreshRate); }
 
-void Config::editLanguage(LanguageMap newLanguage) { _language.ChangeLanguage(newLanguage); }
+void Config::editLanguage(LanguageMap newLanguage) { _language.changeLanguage(newLanguage); }

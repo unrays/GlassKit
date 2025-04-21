@@ -3,6 +3,14 @@
 
 #pragma once
 #include "core/Resolution.h"
+#include <array>
+#include <iostream>
+#include <numeric>
 #include <tuple>
 
 void Resolution::editResolution(uint16_t width, uint16_t height, uint16_t refreshRate) { _width = width; _height = height; _refreshRate = refreshRate; }
+
+void Resolution::printResolution() const {
+    std::cout << "Resolution: " << _width << "x" << _height << " @ " << _refreshRate << "Hz" << std::endl;
+    std::cout << "Aspect Ratio: " << _aspectRatio << std::endl;
+}

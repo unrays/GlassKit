@@ -16,6 +16,7 @@
 #include "tools/Timer.h"
 #include "input/InputManager.h"
 #include <core/Clock.h>
+#include <core/Config.h>
 
 struct window { // Reformuler en classe...
     int width;
@@ -87,6 +88,34 @@ std::vector<Shape> Shapes;
 int main()
 {
     if (!glfwInit()) return -1;
+
+    /* ======================================================================= */
+
+    Config configuration(Resolution(5120, 1400, 240), Language("English"));
+
+    Resolution res = configuration.getResolution();
+    Language lang = configuration.getLanguage();
+
+    std::array<uint16_t, 3> resArray = res.getResolutionValues();
+
+    std::cout << "[ Resolution Details ]" << std::endl;
+    std::cout << "--------------------------" << std::endl;
+    std::cout << "Width       : " << resArray[0] << " px" << std::endl;
+    std::cout << "Height      : " << resArray[1] << " px" << std::endl;
+    std::cout << "Refresh Rate: " << resArray[2] << " Hz" << std::endl;
+    std::cout << "Aspect Ratio: " << res.getAspectRatio() << std::endl;
+
+    std::cout << "\n[ Language Details ]" << std::endl;
+    std::cout << "--------------------------" << std::endl;
+    std::cout << "Current Language : " << lang.toString() << std::endl;
+
+    std::cout << "\n[ Full Resolution Details ]" << std::endl;
+    std::cout << "----------------------------" << std::endl;
+    res.printResolution();
+
+    std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+    /* ======================================================================= */
 
     auto runtimeDuration = new Timer();
 

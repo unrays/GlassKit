@@ -14,6 +14,9 @@ class Config {
 		Config() : _resolution(Resolution()), _language(Language(LanguageMap::English)) {}
 		Config(Resolution resolution, Language language) : _resolution(resolution), _language(language) {}
 
+		const Resolution& getResolution() const { return _resolution; }
+		const Language& getLanguage() const { return _language; }
+
 		void editResolution(uint16_t width, uint16_t height, uint16_t refreshRate);
 		void editLanguage(LanguageMap newLanguage);
 };
