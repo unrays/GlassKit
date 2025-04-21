@@ -14,6 +14,7 @@
 #include "graphics/Shape.h"
 #include "tools/FramerateCounter.h"
 #include "tools/Timer.h"
+#include "input/InputManager.h"
 
 struct window { // Reformuler en classe...
     int width;
@@ -165,6 +166,10 @@ int main()
     static float offsetX = 0;
     static float offsetY = 0;
 
+    InputManager inputManager;
+    glfwSetWindowUserPointer(window, &inputManager);
+    
+
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
@@ -180,8 +185,9 @@ int main()
         framerate->calculateFramerate();
         framerate->displayFramerate();
 
+        glfwSetKeyCallback(window, InputManager::KeyPressHandler);
 
-        
+        inputManager.processInputBuffer();
 
         if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
             offsetY += 0.00025;

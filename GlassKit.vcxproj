@@ -141,7 +141,6 @@
     <ClCompile Include="lib\glad\src\glad.c" />
     <ClCompile Include="src\graphics\Shape.cpp" />
     <ClCompile Include="src\input\InputManager.cpp" />
-    <ClCompile Include="src\input\KeyDecoder.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\tools\FramerateCounter.cpp" />
     <ClCompile Include="src\tools\Timer.cpp" />
@@ -153,7 +152,7 @@
     <ClInclude Include="include\graphics\Vertex.h" />
     <ClInclude Include="include\input\InputManager.h" />
     <ClInclude Include="include\input\Key.h" />
-    <ClInclude Include="include\input\KeyDecoder.h" />
+    <ClInclude Include="include\input\KeyMap.h" />
     <ClInclude Include="include\input\KeyState.h" />
     <ClInclude Include="include\tools\FramerateCounter.h" />
     <ClInclude Include="include\tools\Timer.h" />

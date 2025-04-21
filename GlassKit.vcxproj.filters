@@ -33,9 +33,6 @@
     <ClCompile Include="src\input\InputManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\input\KeyDecoder.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\tools\Timer.h">
@@ -62,10 +59,10 @@
     <ClInclude Include="include\input\Key.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="include\input\KeyDecoder.h">
+    <ClInclude Include="include\input\KeyState.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="include\input\KeyState.h">
+    <ClInclude Include="include\input\KeyMap.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

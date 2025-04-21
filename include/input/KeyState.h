@@ -9,3 +9,12 @@ enum class KeyState {
     Repeated,
     Unknown
 };
+
+inline KeyState convertToState(int& state) {
+    switch (state) {
+        case GLFW_PRESS:   return KeyState::Pressed;
+        case GLFW_RELEASE: return KeyState::Released;
+        case GLFW_REPEAT:  return KeyState::Repeated;
+        default:           return KeyState::Unknown;
+    }
+}

@@ -7,11 +7,25 @@
 #include "input/InputManager.h"
 #include "input/Key.h"
 
-void InputManager::keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    if (action == GLFW_PRESS) {
-        auto pressedKey = Key(key);
+std::vector<Key> InputManager::_inputBuffer;
+
+void InputManager::KeyPressHandler(GLFWwindow* window, int key, int scancode, int action, int mods) {
+    if (action == GLFW_PRESS or action == GLFW_REPEAT) {
+        auto pressedKey = Key(key, action);
+
+        std::cout << "[DEBUG] Key Pressed!" << std::endl;
         _inputBuffer.push_back(pressedKey);
     }
 }
 
-char InputManager::getPressedKey(GLFWwindow* window, int key, int scancode, int action, int mods);
+void InputManager::processInputBuffer() {
+    for (auto it = _inputBuffer.begin(); it != _inputBuffer.end(); ) {
+        const Key& pressedKey = *it;
+
+        if (pressedKey._key == KeyMap::A) {
+            std::cout << "[DEBUG] A Key pressed!" << std::endl;
+        }
+
+        it = _inputBuffer.erase(it);
+    }
+}

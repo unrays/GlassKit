@@ -4,14 +4,13 @@
 #pragma once
 #include <iostream>
 #include <unordered_map>
+#include "Key.h"
 
 class InputManager {
 	private:
 		static std::vector<Key> _inputBuffer;
 
-        
-
 	public:
-		static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
-		void processPressedKey()
+		static void KeyPressHandler(GLFWwindow* window, int key, int scancode, int action, int mods);
+		void processInputBuffer();
 };
