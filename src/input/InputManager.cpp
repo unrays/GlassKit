@@ -13,7 +13,7 @@ void InputManager::KeyPressHandler(GLFWwindow* window, int key, int scancode, in
     if (action == GLFW_PRESS or action == GLFW_REPEAT) {
         auto pressedKey = Key(key, action);
 
-        std::cout << "[DEBUG] Key Pressed!" << std::endl;
+        //std::cout << "[DEBUG] Key Pressed!" << std::endl;
         _inputBuffer.push_back(pressedKey);
     }
 }
@@ -26,6 +26,10 @@ void InputManager::processInputBuffer() {
             std::cout << "[DEBUG] A Key pressed!" << std::endl;
         }
 
-        it = _inputBuffer.erase(it);
+        if (pressedKey._key == KeyMap::D) {
+            std::cout << "[DEBUG] D Key pressed!" << std::endl;
+        }
+
+        it = _inputBuffer.erase(it); // Repenser la logique, ça sert un peu moyen
     }
 }

@@ -62,9 +62,9 @@ void test(Shape& s1, float &offsetX, float &offsetY) {
 
     s1.setVertices({
         Vertex(Coord(0.020f + offsetX, 0.020f + offsetY)),
-        Vertex(Coord(0.020f + offsetX, -0.020f + offsetY)),
-        Vertex(Coord(-0.020f + offsetX, -0.020f + offsetY)),
-        Vertex(Coord(-0.020f + offsetX, 0.020f + offsetY))
+        Vertex(Coord(0.020f + offsetX, -0.020f - offsetY)),
+        Vertex(Coord(-0.020f - offsetX, -0.020f - offsetY)),
+        Vertex(Coord(-0.020f - offsetX, 0.020f + offsetY))
         });
 }
 
@@ -180,7 +180,7 @@ int main()
 
         //system("cls");
 
-        //glfwSwapInterval(1); // V-Sync
+        glfwSwapInterval(1); // V-Sync
 
         framerate->calculateFramerate();
         framerate->displayFramerate();
@@ -189,8 +189,14 @@ int main()
 
         inputManager.processInputBuffer();
 
-        if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
-            offsetY += 0.00025;
+        /*if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+            if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
+                offsetX += 0.0015;
+                offsetY += 0.0015;
+            }
+            else {
+                offsetY += 0.0025;
+            }
         }
         else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
             offsetY -= 0.00025;
@@ -200,7 +206,16 @@ int main()
         }
         else if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
             offsetX -= 0.00025;
-        } 
+        } */
+
+        if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+            offsetY += 0.0025;
+            offsetX += 0.0025;
+        }
+        else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+            offsetY -= 0.0025;
+            offsetX -= 0.0025;
+        }
 
         test(s1, offsetX, offsetY);
 
