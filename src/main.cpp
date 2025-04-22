@@ -91,7 +91,7 @@ int main()
 
     /* ======================================================================= */
 
-    Config configuration(Resolution(5120, 1400, 240), Language("English"));
+    Config configuration(Resolution(5120, 1440, 240), Language("English"));
 
     Resolution res = configuration.getResolution();
     Language lang = configuration.getLanguage();
@@ -113,7 +113,10 @@ int main()
     std::cout << "----------------------------" << std::endl;
     res.printResolution();
 
-    std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+    std::cout << std::endl << std::endl << std::endl << std::endl
+              << std::endl << std::endl << std::endl << std::endl
+              << std::endl << std::endl << std::endl << std::endl
+              << std::endl << std::endl;
 
     /* ======================================================================= */
 
