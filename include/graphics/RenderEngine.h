@@ -4,15 +4,21 @@
 #pragma once
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
+#include "core/Config.h"
 #include <vector>
 
 class RenderEngine {
 	private:
+		Config _configuration;
 		GLFWwindow* _window;
 
 	public:
-		void initialize();
-			void initializeWindow();
+		void initializeComponents();
+		void initializeWindow();
+
+		static void framebufferSizeCallback(GLFWwindow* window, int width, int height);
+
 		void update();
 		void renderFrame();
+			void processInput();
 };

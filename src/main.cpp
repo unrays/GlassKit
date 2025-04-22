@@ -63,10 +63,10 @@ void test(Shape& s1, float &offsetX, float &offsetY) {
     offsetY / 100000.0f;
 
     s1.setVertices({
-        Vertex(Coord(0.020f + offsetX, 0.020f + offsetY)),
-        Vertex(Coord(0.020f + offsetX, -0.020f - offsetY)),
-        Vertex(Coord(-0.020f - offsetX, -0.020f - offsetY)),
-        Vertex(Coord(-0.020f - offsetX, 0.020f + offsetY))
+        Vertex(Coord(0.020f + offsetX, 0.020f + offsetY), Color(1.0f, 0.0f, 0.0f)),
+        Vertex(Coord(0.020f + offsetX, -0.020f - offsetY), Color(1.0f, 0.0f, 0.0f)),
+        Vertex(Coord(-0.020f - offsetX, -0.020f - offsetY), Color(1.0f, 0.0f, 0.0f)),
+        Vertex(Coord(-0.020f - offsetX, 0.020f + offsetY), Color(1.0f, 0.0f, 0.0f))
         });
 }
 
@@ -92,7 +92,8 @@ int main()
     /* ======================================================================= */
 
     const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
-    Config configuration(Resolution(mode->width, mode->height, mode->refreshRate), Language("English"));
+    //Config configuration(Resolution(mode->width, mode->height, mode->refreshRate), Language("English"));
+    Config configuration(Resolution(), Language("English"));
 
     Resolution configuratedResolution = configuration.getResolution();
     Language configuratedLanguage = configuration.getLanguage();

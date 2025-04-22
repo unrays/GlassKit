@@ -21,9 +21,12 @@ public:
 
     void editResolution(uint16_t width = MINIMUM_RESOLUTION[WIDTH], uint16_t height = MINIMUM_RESOLUTION[HEIGHT], uint16_t refreshRate = MINIMUM_RESOLUTION[REFRESH_RATE]);
 
-    std::array<uint16_t, 3> getResolutionValues() const { return { _width, _height, _refreshRate }; }
+    void printResolution() const;
 
+    uint16_t getWidth()      const { return _width; };
+    uint16_t getHeight()     const { return _width; };
+    uint16_t getFramerate()  const { return _width; };
     float_t getAspectRatio() const { return _aspectRatio; }
 
-    void printResolution() const;
+    std::array<uint16_t, 3> getResolutionValues() const { return { _width, _height, _refreshRate }; } // Deprecated
 };

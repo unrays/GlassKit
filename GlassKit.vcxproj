@@ -143,6 +143,7 @@
     <ClCompile Include="src\core\Config.cpp" />
     <ClCompile Include="src\core\Language.cpp" />
     <ClCompile Include="src\core\Resolution.cpp" />
+    <ClCompile Include="src\graphics\RenderEngine.cpp" />
     <ClCompile Include="src\graphics\Shape.cpp" />
     <ClCompile Include="src\input\InputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
