@@ -1,10 +1,10 @@
-C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glad\src\glad.c;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\glad.obj
-C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\core\Clock.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\Clock.obj
-C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\core\Config.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\Config.obj
-C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\core\Language.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\Language.obj
-C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\core\Resolution.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\Resolution.obj
-C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\graphics\Shape.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\Shape.obj
-C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\input\InputManager.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\InputManager.obj
-C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\main.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\main.obj
-C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\tools\FramerateCounter.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\FramerateCounter.obj
-C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\tools\Timer.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\Timer.obj
+C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\lib\glad\src\glad.c;C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\GlassKit\x64\Debug\glad.obj
+C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\src\core\Clock.cpp;C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\GlassKit\x64\Debug\Clock.obj
+C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\src\core\Config.cpp;C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\GlassKit\x64\Debug\Config.obj
+C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\src\core\Language.cpp;C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\GlassKit\x64\Debug\Language.obj
+C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\src\core\Resolution.cpp;C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\GlassKit\x64\Debug\Resolution.obj
+C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\src\graphics\Shape.cpp;C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\GlassKit\x64\Debug\Shape.obj
+C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\src\input\InputManager.cpp;C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\GlassKit\x64\Debug\InputManager.obj
+C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\src\main.cpp;C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\GlassKit\x64\Debug\main.obj
+C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\src\tools\FramerateCounter.cpp;C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\GlassKit\x64\Debug\FramerateCounter.obj
+C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\src\tools\Timer.cpp;C:\Users\etudiant\OneDrive - Collège de Rimouski\Bureau\Personnel\GlassKit\GlassKit\x64\Debug\Timer.obj

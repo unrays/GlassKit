@@ -8,7 +8,7 @@
 #include <string>
 
 enum ID : size_t { WIDTH = 0, HEIGHT = 1, REFRESH_RATE = 2 };
-constexpr uint16_t MINIMUM_RESOLUTION[3] = { 800, 600, 1 };
+constexpr uint16_t MINIMUM_RESOLUTION[3] = { 1024, 768, 60 };
 
 class Resolution {
 private:

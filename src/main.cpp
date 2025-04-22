@@ -78,9 +78,9 @@ void initializeEnvironment() {
     framerate = std::make_unique<FramerateCounter>();
 }
 
-GLFWwindow* initializeWindow()
+GLFWwindow* initializeWindow(const GLuint& width, const GLuint& height, const GLuint& framerate )
 {
-    return glfwCreateWindow(800, 600, "OpenGL Engine", nullptr, nullptr);
+    return glfwCreateWindow(width, height, "OpenGL Engine", nullptr, nullptr);
 }
 
 std::vector<Shape> Shapes;
@@ -91,32 +91,30 @@ int main()
 
     /* ======================================================================= */
 
-    Config configuration(Resolution(5120, 1440, 240), Language("English"));
+    const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+    Config configuration(Resolution(mode->width, mode->height, mode->refreshRate), Language("English"));
 
-    Resolution res = configuration.getResolution();
-    Language lang = configuration.getLanguage();
+    Resolution configuratedResolution = configuration.getResolution();
+    Language configuratedLanguage = configuration.getLanguage();
 
-    std::array<uint16_t, 3> resArray = res.getResolutionValues();
+    std::array<uint16_t, 3> configuratedResolutionArray = configuratedResolution.getResolutionValues();
 
     std::cout << "[ Resolution Details ]" << std::endl;
     std::cout << "--------------------------" << std::endl;
-    std::cout << "Width       : " << resArray[0] << " px" << std::endl;
-    std::cout << "Height      : " << resArray[1] << " px" << std::endl;
-    std::cout << "Refresh Rate: " << resArray[2] << " Hz" << std::endl;
-    std::cout << "Aspect Ratio: " << res.getAspectRatio() << std::endl;
+    std::cout << "Width       : " << configuratedResolutionArray[0] << " px" << std::endl;
+    std::cout << "Height      : " << configuratedResolutionArray[1] << " px" << std::endl;
+    std::cout << "Refresh Rate: " << configuratedResolutionArray[2] << " Hz" << std::endl;
+    std::cout << "Aspect Ratio: " << configuratedResolution.getAspectRatio() << std::endl;
 
     std::cout << "\n[ Language Details ]" << std::endl;
     std::cout << "--------------------------" << std::endl;
-    std::cout << "Current Language : " << lang.toString() << std::endl;
+    std::cout << "Current Language : " << configuratedLanguage.toString() << std::endl;
 
     std::cout << "\n[ Full Resolution Details ]" << std::endl;
     std::cout << "----------------------------" << std::endl;
-    res.printResolution();
+    configuratedResolution.printResolution();
 
-    std::cout << std::endl << std::endl << std::endl << std::endl
-              << std::endl << std::endl << std::endl << std::endl
-              << std::endl << std::endl << std::endl << std::endl
-              << std::endl << std::endl;
+    std::cout << std::endl;
 
     /* ======================================================================= */
 
@@ -136,7 +134,7 @@ int main()
     //glEnable(GL_DEPTH_TEST);
     //glDepthFunc(GL_LEQUAL); // pour 3d
 
-    GLFWwindow* window = initializeWindow();
+    GLFWwindow* window = initializeWindow(configuratedResolutionArray[0], configuratedResolutionArray[1], configuratedResolutionArray[2]);
     if (!window) { glfwTerminate(); return -1; }
 
     glfwMakeContextCurrent(window);

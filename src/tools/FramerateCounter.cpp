@@ -8,6 +8,8 @@
 #include <iostream>
 #include <string>
 
+const float_t UPDATE_FREQUENCY = 0.5;
+
 void FramerateCounter::calculateFramerate() {
 	_previousFrameTiming = _currentFrameTiming;
 	_currentFrameTiming = glfwGetTime();
@@ -18,8 +20,8 @@ void FramerateCounter::calculateFramerate() {
 }
 
 void FramerateCounter::displayFramerate() {
-	if (_frameAccumulator < 1.0) return;
+	if (_frameAccumulator < UPDATE_FREQUENCY) return;
 
-	std::cout << "[DEBUG] " << std::round(_framesPerSecond) << " fps" << std::endl;
+	std::cout << "\rFramerate: " << std::round(_framesPerSecond) << " fps" << std::flush;
 	_frameAccumulator = 0;
 }
