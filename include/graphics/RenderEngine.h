@@ -15,7 +15,7 @@ class RenderEngine {
 		InputManager _inputManager;
 
 	public:
-		//RenderEngine(const Config& config) : _configuration(config), _window(nullptr) {} // Prochaine étape
+		RenderEngine(const Config& config) : _configuration(config), _window(nullptr) {} // Prochaine étape
 
 		void initializeComponents();
 		void setGLFWWindowHints();
@@ -30,6 +30,8 @@ class RenderEngine {
 		void initializeUserPointer() { glfwSetWindowUserPointer(_window, &_inputManager); }
 
 		GLFWwindow* temporaryWindowGetter() { return _window; };
+
+		void displayHardwareInfo();
 
 		void update();
 		void renderFrame();

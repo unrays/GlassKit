@@ -88,61 +88,20 @@ std::vector<Shape> Shapes;
 
 int main()
 {
-    RenderEngine renderEngine;
+    //const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+    //Config configuration(Resolution(mode->width, mode->height, mode->refreshRate), Language("English"));
+    glfwInit();
+    RenderEngine renderEngine = RenderEngine(Config(Resolution(), Language("English")));
     renderEngine.initializeComponents();
 
     GLFWwindow* window = renderEngine.temporaryWindowGetter();
 
     InputManager inputManager;
 
-    // Je suis rendu à linker la config au constructeur de mon renderEngine
-
-    /* ======================================================================= */
-
-    const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
-    //Config configuration(Resolution(mode->width, mode->height, mode->refreshRate), Language("English"));
-    Config configuration(Resolution(), Language("English"));
-
-    Resolution configuratedResolution = configuration.getResolution();
-    Language configuratedLanguage = configuration.getLanguage();
-
-    std::array<uint16_t, 3> configuratedResolutionArray = configuratedResolution.getResolutionValues();
-
-    std::cout << "[ Resolution Details ]" << std::endl;
-    std::cout << "--------------------------" << std::endl;
-    std::cout << "Width       : " << configuratedResolutionArray[0] << " px" << std::endl;
-    std::cout << "Height      : " << configuratedResolutionArray[1] << " px" << std::endl;
-    std::cout << "Refresh Rate: " << configuratedResolutionArray[2] << " Hz" << std::endl;
-    std::cout << "Aspect Ratio: " << configuratedResolution.getAspectRatio() << std::endl;
-
-    std::cout << "\n[ Language Details ]" << std::endl;
-    std::cout << "--------------------------" << std::endl;
-    std::cout << "Current Language : " << configuratedLanguage.toString() << std::endl;
-
-    std::cout << "\n[ Full Resolution Details ]" << std::endl;
-    std::cout << "----------------------------" << std::endl;
-    configuratedResolution.printResolution();
-
-    std::cout << std::endl;
-
-    /* ======================================================================= */
-
     auto runtimeDuration = new Timer();
-
     runtimeDuration->start();
 
     initializeEnvironment();
-
-    //std::unordered_map<std::string, int> render_queue;
-
-    
-    
-
-    //glEnable(GL_DEPTH_TEST);
-    //glDepthFunc(GL_LEQUAL); // pour 3d
-
-
-    /* ========================================= */
     
     Shape s1;
     Shape s2;

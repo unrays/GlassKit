@@ -3,9 +3,13 @@
 
 #pragma once
 #include <array>
+#include <GLAD/glad.h>
+#include <GLFW/glfw3.h>
 #include <iostream>
 #include <numeric>
 #include <string>
+
+//const GLFWvidmode* DEFAULT_RESOLUTION = glfwGetVideoMode(glfwGetPrimaryMonitor()); // Voir plus tard
 
 enum ID : size_t { WIDTH = 0, HEIGHT = 1, REFRESH_RATE = 2 };
 constexpr uint16_t MINIMUM_RESOLUTION[3] = { 1024, 768, 60 };
@@ -23,10 +27,10 @@ public:
 
     void printResolution() const;
 
-    uint16_t getWidth()      const { return _width; };
-    uint16_t getHeight()     const { return _width; };
-    uint16_t getFramerate()  const { return _width; };
-    float_t getAspectRatio() const { return _aspectRatio; }
+    uint16_t getWidth()       const { return _width; };
+    uint16_t getHeight()      const { return _height; };
+    uint16_t getRefreshrate() const { return _refreshRate; };
+    float_t getAspectRatio()  const { return _aspectRatio; }
 
     std::array<uint16_t, 3> getResolutionValues() const { return { _width, _height, _refreshRate }; } // Deprecated
 };

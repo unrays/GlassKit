@@ -15,6 +15,8 @@ void RenderEngine::setGLFWWindowHints() {
 void RenderEngine::initializeComponents() {
 	if (!initializeGLFW()) return;
 
+    displayHardwareInfo();
+
 	setGLFWWindowHints();
 
 	initializeWindow();
@@ -27,4 +29,23 @@ void RenderEngine::initializeComponents() {
 	setFramebufferCallback();
 
 	initializeUserPointer();
+}
+
+void RenderEngine::displayHardwareInfo() { // Diviser dans les classes pour éliminer les getters et setters
+    std::cout << "[ Resolution Details ]" << std::endl;
+    std::cout << "--------------------------" << std::endl;
+    std::cout << "Width       : " << _configuration.getResolution().getWidth() << " px" << std::endl;
+    std::cout << "Height      : " << _configuration.getResolution().getHeight() << " px" << std::endl;
+    std::cout << "Refresh Rate: " << _configuration.getResolution().getRefreshrate() << " Hz" << std::endl;
+    std::cout << "Aspect Ratio: " << _configuration.getResolution().getAspectRatio() << std::endl;
+
+    std::cout << "\n[ Language Details ]" << std::endl;
+    std::cout << "--------------------------" << std::endl;
+    std::cout << "Current Language : " << _configuration.getLanguage().toString() << std::endl;
+
+    std::cout << "\n[ Full Resolution Details ]" << std::endl;
+    std::cout << "----------------------------" << std::endl;
+    _configuration.getResolution().printResolution();
+
+    std::cout << std::endl;
 }
