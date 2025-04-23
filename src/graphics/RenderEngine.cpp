@@ -38,7 +38,7 @@ void RenderEngine::terminateExecution() {
     endExecutionTimer();
 }
 
-void RenderEngine::endExecutionTimer() {
+void RenderEngine::endExecutionTimer() { // Voir si je peux simplement le mettre dans terminateExecution()...
     _runtimeTimer.stop();
     std::cout << "\nTotal execution time: " << _runtimeTimer.elapsedTime().count() << " ms\n";
 }
