@@ -19,30 +19,10 @@
 #include <core/Config.h>
 #include <graphics/RenderEngine.h>
 
-struct window { // Reformuler en classe...
-    int width;
-    int height;
-    /* ... */
-};
-
-struct config { // Reformuler en classe...
-
-};
-
 void processInput(GLFWwindow* window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
-}
-
-void drawTriangle(const Vertex& v1, const Vertex& v2, const Vertex& v3, const Color& c) // Fonction de test
-{
-    //glBegin(GL_TRIANGLES);
-    //    glColor3f(1.0f, 1.0f, 1.0f);
-    //    glVertex2f(v1.x, v1.y); // Sommet supérieur
-    //    glVertex2f(v2.x, v2.y); // Sommet inférieur gauche
-    //    glVertex2f(v3.x, v3.y); // Sommet inférieur droit
-    //glEnd();
 }
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -98,60 +78,9 @@ int main()
 
     InputManager inputManager;
 
-    auto runtimeDuration = new Timer();
-    runtimeDuration->start();
-
     initializeEnvironment();
     
     Shape s1;
-    Shape s2;
-
-    //s1.setVertices({
-    //Vertex(Coord(0.0f, 0.0f)), // centre
-
-    //Vertex(Coord(0.0f, 0.5f)),     // pointe en haut
-    //Vertex(Coord(0.118f, 0.154f)), // creux haut droit
-
-    //Vertex(Coord(0.475f, 0.154f)), // pointe droite
-    //Vertex(Coord(0.191f, -0.059f)),// creux bas droit
-
-    //Vertex(Coord(0.293f, -0.404f)),// pointe bas droite
-    //Vertex(Coord(0.0f, -0.2f)),    // creux bas
-
-    //Vertex(Coord(-0.293f, -0.404f)),// pointe bas gauche
-    //Vertex(Coord(- 0.191f, -0.059f)),// creux bas gauche
-
-    //Vertex(Coord(- 0.475f, 0.154f)), // pointe gauche
-    //Vertex(Coord(- 0.118f, 0.154f)), // creux haut gauche
-
-    //Vertex(Coord(0.0f, 0.5f))       // boucle
-    //    });
-
-
-    //s1.initializeShape();
-
-
-    s2.setVertices({
-        Vertex(1.0f, 0.5f),
-        Vertex(0.5f, -0.5f),
-        Vertex(1.5f, -0.5f)
-    });
-
-    s2.initializeShape();
-
-    /*unsigned int VBO, VAO;
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
-
-    glBindVertexArray(VAO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);*/
-
-    /* ========================================= */
 
     static float offsetX = 0;
     static float offsetY = 0;
@@ -212,25 +141,15 @@ int main()
 
         test(s1, offsetX, offsetY);
 
-        // Faire une classe INPUT qui compartimente la logique
-
-
-
         s1.initializeShape();
 
         s1.drawShape();
-        //s2.drawShape();
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
-    glfwDestroyWindow(window);
-    glfwTerminate();
-
-    runtimeDuration->stop();
-
-    std::cout << "[DEBUG] Total execution time: " << runtimeDuration->elapsedTime().count() << " ms";
+    renderEngine.terminateExecution();
 
     return 0;
 }

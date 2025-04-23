@@ -15,6 +15,8 @@ void RenderEngine::setGLFWWindowHints() {
 void RenderEngine::initializeComponents() {
 	if (!initializeGLFW()) return;
 
+    startExecutionTimer();
+
     displayHardwareInfo();
 
 	setGLFWWindowHints();
@@ -29,6 +31,16 @@ void RenderEngine::initializeComponents() {
 	setFramebufferCallback();
 
 	initializeUserPointer();
+}
+
+void RenderEngine::terminateExecution() {
+    glfwDestroyWindow(_window); glfwTerminate();
+    endExecutionTimer();
+}
+
+void RenderEngine::endExecutionTimer() {
+    _runtimeTimer.stop();
+    std::cout << "\nTotal execution time: " << _runtimeTimer.elapsedTime().count() << " ms\n";
 }
 
 void RenderEngine::displayHardwareInfo() { // Diviser dans les classes pour éliminer les getters et setters

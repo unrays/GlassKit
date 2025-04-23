@@ -25,7 +25,7 @@ public:
 
     void editResolution(uint16_t width = MINIMUM_RESOLUTION[WIDTH], uint16_t height = MINIMUM_RESOLUTION[HEIGHT], uint16_t refreshRate = MINIMUM_RESOLUTION[REFRESH_RATE]);
 
-    void printResolution() const;
+    void printResolution() const; // Deprecated
 
     uint16_t getWidth()       const { return _width; };
     uint16_t getHeight()      const { return _height; };

@@ -23,11 +23,11 @@ void InputManager::processInputBuffer() {
         const Key& pressedKey = *it;
 
         if (pressedKey._key == KeyMap::A) {
-            std::cout << "[DEBUG] A Key pressed!" << std::endl;
+            std::cout << "\nA Key pressed!" << std::endl;
         }
 
         if (pressedKey._key == KeyMap::D) {
-            std::cout << "[DEBUG] D Key pressed!" << std::endl;
+            std::cout << "\nD Key pressed!" << std::endl;
         }
 
         it = _inputBuffer.erase(it); // Repenser la logique, ça sert un peu moyen
