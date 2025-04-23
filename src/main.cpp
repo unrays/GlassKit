@@ -17,6 +17,7 @@
 #include "input/InputManager.h"
 #include <core/Clock.h>
 #include <core/Config.h>
+#include <graphics/RenderEngine.h>
 
 struct window { // Reformuler en classe...
     int width;
@@ -87,7 +88,14 @@ std::vector<Shape> Shapes;
 
 int main()
 {
-    if (!glfwInit()) return -1;
+    RenderEngine renderEngine;
+    renderEngine.initializeComponents();
+
+    GLFWwindow* window = renderEngine.temporaryWindowGetter();
+
+    InputManager inputManager;
+
+    // Je suis rendu à linker la config au constructeur de mon renderEngine
 
     /* ======================================================================= */
 
@@ -127,21 +135,11 @@ int main()
 
     //std::unordered_map<std::string, int> render_queue;
 
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
+    
+    
 
     //glEnable(GL_DEPTH_TEST);
     //glDepthFunc(GL_LEQUAL); // pour 3d
-
-    GLFWwindow* window = initializeWindow(configuratedResolutionArray[0], configuratedResolutionArray[1], configuratedResolutionArray[2]);
-    if (!window) { glfwTerminate(); return -1; }
-
-    glfwMakeContextCurrent(window);
-    gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
 
     /* ========================================= */
@@ -198,9 +196,6 @@ int main()
 
     static float offsetX = 0;
     static float offsetY = 0;
-
-    InputManager inputManager;
-    glfwSetWindowUserPointer(window, &inputManager);
     
     Clock clock;
     const float speed = 0.5f;

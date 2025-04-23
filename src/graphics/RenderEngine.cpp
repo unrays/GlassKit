@@ -6,17 +6,25 @@
 #include <GLFW/glfw3.h>
 #include "graphics/RenderEngine.h"
 
-void RenderEngine::framebufferSizeCallback(GLFWwindow* window, int width, int height) { glViewport(0, 0, width, height); }
-void RenderEngine::initializeWindow() { _window = glfwCreateWindow(_configuration.getResolution().getWidth(), _configuration.getResolution().getHeight(), "OpenGL Engine", nullptr, nullptr); };
+void RenderEngine::setGLFWWindowHints() {
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
+}
 
 void RenderEngine::initializeComponents() {
-	if (!glfwInit()) return;
+	if (!initializeGLFW()) return;
+
+	setGLFWWindowHints();
 
 	initializeWindow();
 	if (!_window) { glfwTerminate(); return; }
 
-	glfwMakeContextCurrent(_window);
-	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+	setCurrentContext();
 
-	glfwSetFramebufferSizeCallback(_window, framebufferSizeCallback);
+	gladLoadOpenGLFunctions();
+
+	setFramebufferCallback();
+
+	initializeUserPointer();
 }
