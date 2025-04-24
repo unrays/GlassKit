@@ -32,5 +32,5 @@ public:
     uint16_t getRefreshrate() const { return _refreshRate; };
     float_t getAspectRatio()  const { return _aspectRatio; }
 
-    std::array<uint16_t, 3> getResolutionValues() const { return { _width, _height, _refreshRate }; } // Deprecated
+    //std::array<uint16_t, 3> getResolutionValues() const { return { _width, _height, _refreshRate }; } // Deprecated
 };

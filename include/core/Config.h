@@ -14,9 +14,11 @@ class Config {
 		Config() : _resolution(Resolution()), _language(Language(LanguageMap::English)) {}
 		Config(Resolution resolution, Language language) : _resolution(resolution), _language(language) {}
 
-		Resolution& getResolution() { return _resolution; } // Pas besoin des getters, simplement display les infos dans les classes
-		Language& getLanguage() { return _language; }
+		Resolution& getResolution() { return _resolution; } // Pas fou... mais pas le choix!
+		Language& getLanguage() { return _language; }		// Pas fou...
 
 		void editResolution(uint16_t width, uint16_t height, uint16_t refreshRate);
 		void editLanguage(LanguageMap newLanguage);
+
+		void displayHardwareInfo();
 };

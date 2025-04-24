@@ -24,10 +24,10 @@ void test(Shape& s1, float &offsetX, float &offsetY) {
     offsetY / 100000.0f;
 
     s1.setVertices({
-        Vertex(Coord(0.020f + offsetX, 0.020f + offsetY), Color(1.0f, 0.0f, 0.0f)),
-        Vertex(Coord(0.020f + offsetX, -0.020f - offsetY), Color(1.0f, 0.0f, 0.0f)),
-        Vertex(Coord(-0.020f - offsetX, -0.020f - offsetY), Color(1.0f, 0.0f, 0.0f)),
-        Vertex(Coord(-0.020f - offsetX, 0.020f + offsetY), Color(1.0f, 0.0f, 0.0f))
+        Vertex(Coord(0.020f + offsetX, 0.020f + offsetY), Color(1.0f, 0.0f, 0.0f, 1.0f)),
+        Vertex(Coord(0.020f + offsetX, -0.020f - offsetY), Color(1.0f, 0.0f, 0.0f, 1.0f)),
+        Vertex(Coord(-0.020f - offsetX, -0.020f - offsetY), Color(1.0f, 0.0f, 0.0f, 1.0f)),
+        Vertex(Coord(-0.020f - offsetX, 0.020f + offsetY), Color(1.0f, 0.0f, 0.0f, 1.0f))
         });
 }
 
@@ -38,7 +38,7 @@ int main()
     //const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
     //Config configuration(Resolution(mode->width, mode->height, mode->refreshRate), Language("English"));
     glfwInit();
-    RenderEngine renderEngine = RenderEngine(Config(Resolution(), Language("English")));
+    RenderEngine renderEngine(Config(Resolution(), Language("English")), SimulationManager(Clock(), 0.5f));
     renderEngine.initializeComponents();
 
     GLFWwindow* window = renderEngine.temporaryWindowGetter();
@@ -49,18 +49,12 @@ int main()
     Shape s1;
     static float offsetX = 0;
     static float offsetY = 0;
-    
-    Clock clock;
-    const float speed = 0.5f;
 
     while (!glfwWindowShouldClose(window))
     {
         renderEngine.processInput();
 
-
-        clock.update();
-
-        double dt = clock.deltaTime();
+        renderEngine.updateSimulation();
 
         glClear(GL_COLOR_BUFFER_BIT);
 
@@ -89,12 +83,12 @@ int main()
         } */
 
         if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
-            offsetY += speed * dt;
-            offsetX += speed * dt;
+            offsetY += renderEngine.temporaryGetSimulationSpeed() * renderEngine.temporaryGetDeltaTime();
+            offsetX += renderEngine.temporaryGetSimulationSpeed() * renderEngine.temporaryGetDeltaTime();
         }
         else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
-            offsetY -= speed * dt;
-            offsetX -= speed * dt;
+            offsetY -= renderEngine.temporaryGetSimulationSpeed() * renderEngine.temporaryGetDeltaTime();
+            offsetX -= renderEngine.temporaryGetSimulationSpeed() * renderEngine.temporaryGetDeltaTime();
         }
 
         test(s1, offsetX, offsetY);

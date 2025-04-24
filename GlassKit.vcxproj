@@ -165,6 +165,7 @@
     <ClInclude Include="include\input\Key.h" />
     <ClInclude Include="include\input\KeyMap.h" />
     <ClInclude Include="include\input\KeyState.h" />
+    <ClInclude Include="include\simulation\SimulationManager.h" />
     <ClInclude Include="include\tools\FramerateCounter.h" />
     <ClInclude Include="include\tools\Timer.h" />
   </ItemGroup>

@@ -2,32 +2,31 @@
 // Licensed under the MIT License. See LICENSE for details.
 
 #pragma once
-#include <GLAD/glad.h>
-#include <GLFW/glfw3.h>
 #include "core/Config.h"
 #include "input/InputManager.h"
-#include <vector>
-#include <tools/Timer.h>
+#include "simulation/SimulationManager.h"
+#include <GLAD/glad.h>
+#include <GLFW/glfw3.h>
 #include <tools/FramerateCounter.h>
+#include <tools/Timer.h>
+#include <vector>
 
 class RenderEngine {
 	private:
 		GLFWwindow* _window;
+		const GLFWvidmode *_currentVideoMode;
+
 		Config _configuration;
 		InputManager _inputManager;
+		SimulationManager _simulationManager;
 
 		Timer _runtimeTimer;
 		FramerateCounter _framerateCounter;
 
-		GLuint _simulationSpeed;
-
 	public:
-		RenderEngine(const Config& config) : _configuration(config), _window(nullptr) {} // Prochaine étape
-
-		void initializeComponents();
-		
-
+		RenderEngine(const Config& config, SimulationManager simulationManager) : _configuration(config), _simulationManager(simulationManager), _window(nullptr) {}
 		static void framebufferSizeCallback(GLFWwindow* window, int width, int height) { glViewport(0, 0, width, height); }
+		void initializeComponents();
 
 		
 		void initializeGLFWWindowSettings()				 { initializeGLFW(); initializeWindow(); };
@@ -38,10 +37,11 @@ class RenderEngine {
 			 void startExecutionTimer()					 { _runtimeTimer.start(); }
 
 		void showStartupInfo()							 { displayHardwareInfo(); }
-		     void displayHardwareInfo();				 // À compartimenter en petites fonctions ou dans les classes
+			 void displayHardwareInfo()					 { _configuration.displayHardwareInfo(); }
 
-		void initializeRenderSettings()					 { setCurrentContext(); gladLoadOpenGLFunctions(); applyVSyncSetting(false); }
+		void initializeRenderSettings()					 { setCurrentContext(); gladLoadOpenGLFunctions(); setCurrentVideoMode(); applyVSyncSetting(false); }
 			 void setCurrentContext()					 { glfwMakeContextCurrent(_window); }
+			 void setCurrentVideoMode()					 { _currentVideoMode = glfwGetVideoMode(glfwGetPrimaryMonitor()); }
 			 void gladLoadOpenGLFunctions()				 { gladLoadGLLoader((GLADloadproc)glfwGetProcAddress); }
 			 void applyVSyncSetting(bool enabled = true) { glfwSwapInterval(enabled ? 1 : 0); }
 
@@ -54,18 +54,20 @@ class RenderEngine {
 			 void endExecutionTimer()		             { _runtimeTimer.stop(); };
 			 void destroyWindowAndTerminate()		     { glfwDestroyWindow(_window); glfwTerminate(); }
 
-
 		void updateRenderingContext()					 { processWindowEvents(); updateBuffer(); };
 			 void processWindowEvents()					 { glfwPollEvents(); };
 			 void updateBuffer()						 { glfwSwapBuffers(_window); };
+			 void updateSimulation()					 { _simulationManager.update(); };
+			 
 
 			 
 		/* Temporary functions for transition purpose */
 		GLFWwindow* temporaryWindowGetter() { return _window; };
 		FramerateCounter temporaryFramerateCounterGetter() { return _framerateCounter; };
 		void temporarySwapBufferCall() { glfwSwapBuffers(_window); glfwPollEvents(); };
+		double_t temporaryGetDeltaTime() { return _simulationManager.getDeltaTime(); };
+		GLfloat temporaryGetSimulationSpeed() { return _simulationManager.getSimulationSpeed(); };
 
-		
 
 		void update();
 		void renderFrame();

@@ -7,10 +7,11 @@
 
 class Clock {
 	private:
-		double _lastTime = glfwGetTime();
-		double _deltaTime = 0.0;
+		double _lastTime = glfwGetTime(), _deltaTime = 0.0;
 
 	public:
+		Clock();
+
 		void update();
 		double deltaTime();
 };

@@ -4,10 +4,17 @@
 #pragma once
 #include "core/Clock.h"
 
+Clock::Clock() {
+	_lastTime = glfwGetTime();
+	_deltaTime = 0.0;
+}
+
 void Clock::update() {
 	double current = glfwGetTime();
 	_deltaTime = current - _lastTime;
 	_lastTime = current;
 }
 
-double Clock::deltaTime() { return _deltaTime; }
+double Clock::deltaTime() {
+	return _deltaTime;
+}
