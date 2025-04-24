@@ -13,34 +13,34 @@ void RenderEngine::setGLFWWindowHints() {
 }
 
 void RenderEngine::initializeComponents() {
-	if (!initializeGLFW()) return;
+	if (!initializeGLFW()) return; // Faire un truc pour CHECK()
 
-    startExecutionTimer();
+    initializeGLFWWindowSettings();
 
-    displayHardwareInfo();
+    initializeRuntimeComponents();
 
-	setGLFWWindowHints();
+    showStartupInfo();
 
-	initializeWindow();
 	if (!_window) { glfwTerminate(); return; }
 
-	setCurrentContext();
+    initializeRenderSettings();
 
-	gladLoadOpenGLFunctions();
-
-	setFramebufferCallback();
-
-	initializeUserPointer();
+    configureGLFWWindowSettings();
 }
 
-void RenderEngine::terminateExecution() {
-    glfwDestroyWindow(_window); glfwTerminate();
-    endExecutionTimer();
+void RenderEngine::update() {
+    //glClear(GL_COLOR_BUFFER_BIT);
+
+    processInput();
+
+    updateRenderingContext();
 }
 
-void RenderEngine::endExecutionTimer() { // Voir si je peux simplement le mettre dans terminateExecution()...
-    _runtimeTimer.stop();
-    std::cout << "\nTotal execution time: " << _runtimeTimer.elapsedTime().count() << " ms\n";
+void RenderEngine::processInput() {
+    _inputManager.processInputBuffer();
+    
+    if (glfwGetKey(_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(_window, true);
 }
 
 void RenderEngine::displayHardwareInfo() { // Diviser dans les classes pour éliminer les getters et setters

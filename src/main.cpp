@@ -19,26 +19,6 @@
 #include <core/Config.h>
 #include <graphics/RenderEngine.h>
 
-void processInput(GLFWwindow* window)
-{
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-}
-
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
-{
-    glViewport(0, 0, width, height);
-}
-
-void checkGLFW()
-{
-
-}
-
-void render() {
-
-}
-
 void test(Shape& s1, float &offsetX, float &offsetY) {
     offsetX / 100000.0f;
     offsetY / 100000.0f;
@@ -49,19 +29,6 @@ void test(Shape& s1, float &offsetX, float &offsetY) {
         Vertex(Coord(-0.020f - offsetX, -0.020f - offsetY), Color(1.0f, 0.0f, 0.0f)),
         Vertex(Coord(-0.020f - offsetX, 0.020f + offsetY), Color(1.0f, 0.0f, 0.0f))
         });
-}
-
-//std::unique_ptr<Timer> runtimeDuration = nullptr;
-std::unique_ptr<FramerateCounter> framerate = nullptr;
-
-void initializeEnvironment() {
-    //runtimeDuration = std::make_unique<Timer>();
-    framerate = std::make_unique<FramerateCounter>();
-}
-
-GLFWwindow* initializeWindow(const GLuint& width, const GLuint& height, const GLuint& framerate )
-{
-    return glfwCreateWindow(width, height, "OpenGL Engine", nullptr, nullptr);
 }
 
 std::vector<Shape> Shapes;
@@ -75,13 +42,11 @@ int main()
     renderEngine.initializeComponents();
 
     GLFWwindow* window = renderEngine.temporaryWindowGetter();
+    FramerateCounter framerateCounter = renderEngine.temporaryFramerateCounterGetter();
 
     InputManager inputManager;
-
-    initializeEnvironment();
     
     Shape s1;
-
     static float offsetX = 0;
     static float offsetY = 0;
     
@@ -90,26 +55,19 @@ int main()
 
     while (!glfwWindowShouldClose(window))
     {
+        renderEngine.processInput();
+
+
         clock.update();
 
         double dt = clock.deltaTime();
 
-        processInput(window);
-
         glClear(GL_COLOR_BUFFER_BIT);
-        
-        //drawTriangle({ 0.0, 0.5 }, { -0.5, -0.5 }, { 0.5, -0.5 }, { 1.0, 1.0, 1.0 });
 
-        //system("cls");
-
-        glfwSwapInterval(0); // V-Sync
-
-        framerate->calculateFramerate();
-        framerate->displayFramerate();
+        framerateCounter.calculateFramerate();
+        framerateCounter.displayFramerate();
 
         glfwSetKeyCallback(window, InputManager::KeyPressHandler);
-
-        inputManager.processInputBuffer();
 
         /*if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
             if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
@@ -145,8 +103,8 @@ int main()
 
         s1.drawShape();
 
-        glfwSwapBuffers(window);
-        glfwPollEvents();
+
+        renderEngine.temporarySwapBufferCall();
     }
 
     renderEngine.terminateExecution();
