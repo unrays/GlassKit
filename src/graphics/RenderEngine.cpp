@@ -2,9 +2,11 @@
 // Licensed under the MIT License. See LICENSE for details.
 
 #pragma once
+#include "graphics/RenderEngine.h"
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
-#include "graphics/RenderEngine.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 void RenderEngine::setGLFWWindowHints() {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -34,13 +36,13 @@ void RenderEngine::initializeComponents() {
 }
 
 void RenderEngine::update() {
-    //glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     processInput();
 
     updateSimulation();
 
-    updateRenderingContext();
+    handleRenderCycle();
 }
 
 void RenderEngine::processInput() {
@@ -48,4 +50,7 @@ void RenderEngine::processInput() {
     
     if (glfwGetKey(_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(_window, true);
+}
+
+void RenderEngine::renderShaderFrame() {
 }

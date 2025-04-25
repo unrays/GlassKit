@@ -72,11 +72,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>..\GlassKit\include;..\GlassKit\lib\glfw\glfw-3.4\include;..\GlassKit\lib\glad\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\GlassKit\lib\glfw\glfw-3.4\lib-vc2022;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\GlassKit\lib\glfw\glfw-3.4\lib-vc2022;$(LibraryPath);..\GlassKit\lib\glew\lib\Release\Win32</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glad\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\lib-vc2022;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\lib-vc2022;$(LibraryPath);..\GlassKit\lib\glew\lib\Release\Win32</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -144,6 +144,7 @@
     <ClCompile Include="src\core\Language.cpp" />
     <ClCompile Include="src\core\Resolution.cpp" />
     <ClCompile Include="src\graphics\RenderEngine.cpp" />
+    <ClCompile Include="src\graphics\Shader.cpp" />
     <ClCompile Include="src\graphics\Shape.cpp" />
     <ClCompile Include="src\input\InputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="include\core\Resolution.h" />
     <ClInclude Include="include\database\LanguageMap.h" />
     <ClInclude Include="include\graphics\RenderEngine.h" />
+    <ClInclude Include="include\graphics\Shader.h" />
     <ClInclude Include="include\graphics\Shape.h" />
     <ClInclude Include="include\graphics\Vertex.h" />
     <ClInclude Include="include\input\InputManager.h" />
@@ -172,7 +174,19 @@
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\glew.v140.1.12.0\build\native\glew.v140.targets" Condition="Exists('packages\glew.v140.1.12.0\build\native\glew.v140.targets')" />
+    <Import Project="packages\glm.1.0.1\build\native\glm.targets" Condition="Exists('packages\glm.1.0.1\build\native\glm.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\glew.v140.1.12.0\build\native\glew.v140.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\glew.v140.1.12.0\build\native\glew.v140.targets'))" />
+    <Error Condition="!Exists('packages\glm.1.0.1\build\native\glm.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\glm.1.0.1\build\native\glm.targets'))" />
+  </Target>
 </Project>

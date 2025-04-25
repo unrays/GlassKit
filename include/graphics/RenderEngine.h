@@ -10,6 +10,8 @@
 #include <tools/FramerateCounter.h>
 #include <tools/Timer.h>
 #include <vector>
+#include "Shader.h"
+
 
 class RenderEngine {
 	private:
@@ -22,6 +24,8 @@ class RenderEngine {
 
 		Timer _runtimeTimer;
 		FramerateCounter _framerateCounter;
+
+		//Shader _shader;
 
 	public:
 		RenderEngine(const Config& config, SimulationManager simulationManager) : _configuration(config), _simulationManager(simulationManager), _window(nullptr) {}
@@ -54,10 +58,12 @@ class RenderEngine {
 			 void endExecutionTimer()		             { _runtimeTimer.stop(); };
 			 void destroyWindowAndTerminate()		     { glfwDestroyWindow(_window); glfwTerminate(); }
 
-		void updateRenderingContext()					 { processWindowEvents(); updateBuffer(); };
-			 void processWindowEvents()					 { glfwPollEvents(); };
-			 void updateBuffer()						 { glfwSwapBuffers(_window); };
-			 void updateSimulation()					 { _simulationManager.update(); };
+		void handleRenderCycle()						 { processWindowMessages(); swapBuffers(); updateSimulation(); }
+			 void processWindowMessages()				 { glfwPollEvents(); }
+			 void swapBuffers()							 { glfwSwapBuffers(_window); }
+			 void updateSimulation()					 { _simulationManager.update(); }
+			 void renderShaderFrame();
+
 			 
 
 			 
