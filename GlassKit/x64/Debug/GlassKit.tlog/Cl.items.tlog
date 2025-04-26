@@ -1,6 +1,8 @@
+C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\include\core\Timestream.h;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\Timestream.obj
 C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glad\src\glad.c;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\glad.obj
 C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\core\Clock.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\Clock.obj
 C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\core\Config.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\Config.obj
+C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\core\FramerateManager.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\FramerateManager.obj
 C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\core\Language.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\Language.obj
 C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\core\Resolution.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\Resolution.obj
 C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\src\graphics\RenderEngine.cpp;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\GlassKit\x64\Debug\RenderEngine.obj

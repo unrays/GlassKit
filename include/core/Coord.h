@@ -2,9 +2,8 @@
 // Licensed under the MIT License. See LICENSE for details.
 
 #pragma once
-#include <array>
-#include <GLAD/glad.h>
-#include <GLFW/glfw3.h>
+#include "common.h"
+#include "graphics.h"
 
 constexpr enum Axis : size_t {X = 0, Y = 1, Z = 2};
 constexpr std::array<GLfloat, 3> DEFAULT_COORDINATE = { 0.0f, 0.0f, 0.0f };

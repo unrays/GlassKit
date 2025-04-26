@@ -71,11 +71,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>..\GlassKit\include;..\GlassKit\lib\glfw\glfw-3.4\include;..\GlassKit\lib\glad\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\GlassKit\include\headers;..\GlassKit\include;..\GlassKit\lib\glfw\glfw-3.4\include;..\GlassKit\lib\glad\include;$(IncludePath)</IncludePath>
     <LibraryPath>..\GlassKit\lib\glfw\glfw-3.4\lib-vc2022;$(LibraryPath);..\GlassKit\lib\glew\lib\Release\Win32</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glad\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\GlassKit\include\headers;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\include;C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glad\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\Félix-Olivier Dumas\Documents\Programmation\GlassKit\lib\glfw\glfw-3.4\lib-vc2022;$(LibraryPath);..\GlassKit\lib\glew\lib\Release\Win32</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -138,20 +138,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\core\TimeStream.h" />
     <ClCompile Include="lib\glad\src\glad.c" />
     <ClCompile Include="src\core\Clock.cpp" />
     <ClCompile Include="src\core\Config.cpp" />
+    <ClCompile Include="src\core\FramerateManager.cpp" />
     <ClCompile Include="src\core\Language.cpp" />
     <ClCompile Include="src\core\Resolution.cpp" />
+    <ClCompile Include="src\core\Time.cpp" />
+    <ClCompile Include="src\core\TimeStream.cpp" />
     <ClCompile Include="src\graphics\RenderEngine.cpp" />
     <ClCompile Include="src\graphics\Shader.cpp" />
     <ClCompile Include="src\graphics\Shape.cpp" />
     <ClCompile Include="src\input\InputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\tools\FramerateCounter.cpp" />
     <ClCompile Include="src\tools\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\core\FramerateManager.h" />
+    <ClInclude Include="include\core\Time.h" />
+    <ClInclude Include="include\headers\common.h" />
     <ClInclude Include="include\core\Clock.h" />
     <ClInclude Include="include\core\Color.h" />
     <ClInclude Include="include\core\Config.h" />
@@ -163,12 +169,12 @@
     <ClInclude Include="include\graphics\Shader.h" />
     <ClInclude Include="include\graphics\Shape.h" />
     <ClInclude Include="include\graphics\Vertex.h" />
+    <ClInclude Include="include\headers\graphics.h" />
     <ClInclude Include="include\input\InputManager.h" />
     <ClInclude Include="include\input\Key.h" />
     <ClInclude Include="include\input\KeyMap.h" />
     <ClInclude Include="include\input\KeyState.h" />
     <ClInclude Include="include\simulation\SimulationManager.h" />
-    <ClInclude Include="include\tools\FramerateCounter.h" />
     <ClInclude Include="include\tools\Timer.h" />
   </ItemGroup>
   <ItemGroup>

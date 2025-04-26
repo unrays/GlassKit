@@ -16,7 +16,7 @@
 #include "core/Coord.h"
 #include "graphics/Vertex.h"
 #include "graphics/Shape.h"
-#include "tools/FramerateCounter.h"
+#include "core/FramerateManager.h"
 #include "tools/Timer.h"
 #include "input/InputManager.h"
 #include <core/Clock.h>
@@ -92,7 +92,7 @@ int main()
     renderEngine.initializeComponents();
 
     GLFWwindow* window = renderEngine.temporaryWindowGetter();
-    FramerateCounter framerateCounter = renderEngine.temporaryFramerateCounterGetter();
+    FramerateManager framerateManager = renderEngine.temporaryFramerateManagerGetter();
 
     InputManager inputManager;
     
@@ -126,8 +126,8 @@ int main()
 
         glClear(GL_COLOR_BUFFER_BIT);
 
-        framerateCounter.calculateFramerate();
-        framerateCounter.displayFramerate();
+        framerateManager.calculateCurrentFramerate();
+        framerateManager.displayFramerate();
 
         glfwSetKeyCallback(window, InputManager::KeyPressHandler);
 

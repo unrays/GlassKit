@@ -7,7 +7,7 @@
 #include "simulation/SimulationManager.h"
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
-#include <tools/FramerateCounter.h>
+#include <core/FramerateManager.h>
 #include <tools/Timer.h>
 #include <vector>
 #include "Shader.h"
@@ -23,7 +23,7 @@ class RenderEngine {
 		SimulationManager _simulationManager;
 
 		Timer _runtimeTimer;
-		FramerateCounter _framerateCounter;
+		FramerateManager _framerateManager;
 
 		//Shader _shader;
 
@@ -69,7 +69,7 @@ class RenderEngine {
 			 
 		/* Temporary functions for transition purpose */
 		GLFWwindow* temporaryWindowGetter() { return _window; };
-		FramerateCounter temporaryFramerateCounterGetter() { return _framerateCounter; };
+		FramerateManager temporaryFramerateManagerGetter() { return _framerateManager; };
 		void temporarySwapBufferCall() { glfwSwapBuffers(_window); glfwPollEvents(); };
 		double_t temporaryGetDeltaTime() { return _simulationManager.getDeltaTime(); };
 		GLfloat temporaryGetSimulationSpeed() { return _simulationManager.getSimulationSpeed(); };

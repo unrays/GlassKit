@@ -2,10 +2,10 @@
 // Licensed under the MIT License. See LICENSE for details.
 // Shader class contributed by ChatGPT (OpenAI).
 
+#pragma once
+#include "common.h"
+#include "graphics.h"
 #include "graphics/Shader.h"
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 const std::string Shader::vertexShaderSource = R"(
 #version 330 core

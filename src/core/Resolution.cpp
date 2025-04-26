@@ -8,7 +8,7 @@
 #include <numeric>
 #include <tuple>
 
-void Resolution::editResolution(uint16_t width, uint16_t height, uint16_t refreshRate) { _width = width; _height = height; _refreshRate = refreshRate; }
+void Resolution::editResolution(GLuint width, GLuint height, GLuint refreshRate) { _width = width; _height = height; _refreshRate = refreshRate; }
 
 void Resolution::printResolution() const {
     std::cout << "Resolution: " << _width << "x" << _height << " @ " << _refreshRate << "Hz" << std::endl;
