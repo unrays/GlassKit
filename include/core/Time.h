@@ -6,6 +6,6 @@
 #include "graphics.h"
 
 class Time {
-	public: 
-		static double getCurrentTime();
+public: 
+	static double getCurrentTime();
 };

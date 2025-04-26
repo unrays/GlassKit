@@ -2,8 +2,8 @@
 // Licensed under the MIT License. See LICENSE for details.
 
 #pragma once
-#include <GLAD/glad.h>
-#include <GLFW/glfw3.h>
+#include "common.h"
+#include "graphics.h"
 
 class Clock {
 	private:

@@ -113,6 +113,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,6 +129,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,6 +149,7 @@
     <ClCompile Include="src\core\Resolution.cpp" />
     <ClCompile Include="src\core\Time.cpp" />
     <ClCompile Include="src\core\TimeStream.cpp" />
+    <ClCompile Include="src\graphics\Camera.cpp" />
     <ClCompile Include="src\graphics\RenderEngine.cpp" />
     <ClCompile Include="src\graphics\Shader.cpp" />
     <ClCompile Include="src\graphics\Shape.cpp" />
@@ -157,6 +160,7 @@
   <ItemGroup>
     <ClInclude Include="include\core\FramerateManager.h" />
     <ClInclude Include="include\core\Time.h" />
+    <ClInclude Include="include\graphics\Camera.h" />
     <ClInclude Include="include\headers\common.h" />
     <ClInclude Include="include\core\Clock.h" />
     <ClInclude Include="include\core\Color.h" />

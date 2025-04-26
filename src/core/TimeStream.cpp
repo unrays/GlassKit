@@ -8,7 +8,7 @@
 
 TimeStream::TimeStream() : _previousTime(Time::getCurrentTime()) {}
 
-double TimeStream::getEllapsedTimeSinceLastCall() { updateStream(); return _ellapsedTime; }
+double TimeStream::getElapsedTimeSinceLastCall() { updateStream(); return _ellapsedTime; }
 
 void TimeStream::updateStream() {
 	_currentTime = Time::getCurrentTime();

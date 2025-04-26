@@ -5,7 +5,7 @@
 #include "common.h"
 #include "graphics.h"
 
-constexpr enum ColorChannel : size_t { R = 0, G = 1, B = 2, A = 3 };
+constexpr enum ColorChannel { R = 0, G = 1, B = 2, A = 3 };
 constexpr std::array<GLfloat, 4> MINIMUM_VALUE = { 0.0f, 0.0f, 0.0f, 0.0f };
 
 struct Color {

@@ -7,13 +7,13 @@
 #include "Time.h"
 
 class TimeStream {
-	private:
-		double _previousTime;
-		double _currentTime;
-		double _ellapsedTime;
-		void updateStream();
+private:
+	double _previousTime;
+	double _currentTime;
+	double _ellapsedTime;
+	void updateStream();
 
-	public:
-		TimeStream();
-		double getEllapsedTimeSinceLastCall();
+public:
+	TimeStream();
+	double getElapsedTimeSinceLastCall();
 };

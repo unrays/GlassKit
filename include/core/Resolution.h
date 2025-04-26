@@ -7,7 +7,7 @@
 
 //const GLFWvidmode* DEFAULT_RESOLUTION = glfwGetVideoMode(glfwGetPrimaryMonitor()); // Voir plus tard
 
-constexpr enum ID : size_t { WIDTH = 0, HEIGHT = 1, REFRESH_RATE = 2 };
+constexpr enum ID { WIDTH = 0, HEIGHT = 1, REFRESH_RATE = 2 };
 constexpr std::array<GLuint, 3> MINIMUM_RESOLUTION = { 1024, 768, 60 };
 
 class Resolution {

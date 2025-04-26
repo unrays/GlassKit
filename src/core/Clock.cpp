@@ -2,6 +2,8 @@
 // Licensed under the MIT License. See LICENSE for details.
 
 #pragma once
+#include "common.h"
+#include "graphics.h"
 #include "core/Clock.h"
 
 Clock::Clock() {

@@ -7,11 +7,11 @@
 #include "TimeStream.h"
 
 class FramerateManager {
-	private:
-		TimeStream _timeStream;
-		double _framesAccumulator, _framesPerSecond;
+private:
+	TimeStream _timeStream;
+	double _framesAccumulator, _framesPerSecond;
 
-	public:
-		void calculateCurrentFramerate();
-		void displayFramerate();
+public:
+	void calculateCurrentFramerate();
+	void displayFramerate();
 };

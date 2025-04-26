@@ -6,12 +6,12 @@
 #include "graphics.h"
 #include "core/FramerateManager.h"
 
-constexpr double DISPLAY_FREQUENCY = 0.5;
+constexpr double DISPLAY_FREQUENCY = 0.25;
 
 void FramerateManager::calculateCurrentFramerate() {
-	auto ellapsedTime = _timeStream.getEllapsedTimeSinceLastCall();
+	auto ellapsedTime = _timeStream.getElapsedTimeSinceLastCall();
 
-	_framesPerSecond = (1 / ellapsedTime);
+	_framesPerSecond = (1.0 / ellapsedTime);
 	_framesAccumulator += ellapsedTime;
 }
 
