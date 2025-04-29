@@ -19,6 +19,18 @@ void RenderEngine::setGLFWWindowHints() {
     glfwWindowHint(GLFW_REFRESH_RATE, _currentVideoMode->refreshRate);
 }
 
+void RenderEngine::setOpenGLRenderSettings() {
+    glDisable(GL_BLEND);
+    glDepthMask(GL_TRUE);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glEnable(GL_DEPTH_TEST);
+
+    glBlendFunc(GL_ONE_MINUS_SRC_ALPHA, GL_SRC_ALPHA);
+    glEnable(GL_COLOR_MATERIAL);
+
+    glDepthFunc(GL_LESS);
+}
+
 void RenderEngine::initializeComponents() {
 	if (!initializeGLFW()) return; // Faire un truc pour CHECK()
 
@@ -36,7 +48,7 @@ void RenderEngine::initializeComponents() {
 }
 
 void RenderEngine::update() {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
 
     processInput();
 

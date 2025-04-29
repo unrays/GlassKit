@@ -28,58 +28,37 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-void test(Shape& s1) {
-    float size = 0.5f;
-
-    // Les coordonnées des 8 sommets du cube
-    Coord v[8] = {
-        Coord(size,  size,  size), // 0
-        Coord(size, -size,  size), // 1
-        Coord(-size, -size,  size), // 2
-        Coord(-size,  size,  size), // 3
-        Coord(size,  size, -size), // 4
-        Coord(size, -size, -size), // 5
-        Coord(-size, -size, -size), // 6
-        Coord(-size,  size, -size)  // 7
+void make3DShape(Shape& s, float h = 0.8f) {
+    static const Color col[6] = {
+        {1,0,0,1}, {0,1,0,1}, {0,0,1,1},
+        {1,1,0,1}, {1,0,1,1}, {0,1,1,1}
     };
-
-    // Définition des couleurs pour chaque face
-    Color c[] = {
-        Color(1, 0, 0, 1), // Rouge
-        Color(0, 1, 0, 1), // Vert
-        Color(0, 0, 1, 1), // Bleu
-        Color(1, 1, 0, 1), // Jaune
-        Color(1, 0, 1, 1), // Magenta
-        Color(0, 1, 1, 1)  // Cyan
+    const Coord v[8] = {
+        { h,  h,  h}, { h, -h,  h}, {-h, -h,  h}, {-h,  h,  h},
+        { h,  h, -h}, { h, -h, -h}, {-h, -h, -h}, {-h,  h, -h}
     };
-
-    // Les faces du cube, chaque face est composée de 2 triangles
-    s1.setVertices({
+    s.setVertices({
         // Avant
-        Vertex(v[0], c[0]), Vertex(v[1], c[0]), Vertex(v[2], c[0]),
-        Vertex(v[2], c[0]), Vertex(v[3], c[0]), Vertex(v[0], c[0]),
-
+        {v[0],col[0]},{v[1],col[0]},{v[2],col[0]},
+        {v[0],col[0]},{v[2],col[0]},{v[3],col[0]},
         // Arrière
-        Vertex(v[4], c[1]), Vertex(v[5], c[1]), Vertex(v[6], c[1]),
-        Vertex(v[6], c[1]), Vertex(v[7], c[1]), Vertex(v[4], c[1]),
-
+        {v[5],col[1]},{v[4],col[1]},{v[7],col[1]},
+        {v[5],col[1]},{v[7],col[1]},{v[6],col[1]},
         // Droite
-        Vertex(v[0], c[2]), Vertex(v[1], c[2]), Vertex(v[5], c[2]),
-        Vertex(v[5], c[2]), Vertex(v[4], c[2]), Vertex(v[0], c[2]),
-
+        {v[0],col[2]},{v[4],col[2]},{v[5],col[2]},
+        {v[0],col[2]},{v[5],col[2]},{v[1],col[2]},
         // Gauche
-        Vertex(v[3], c[3]), Vertex(v[2], c[3]), Vertex(v[6], c[3]),
-        Vertex(v[6], c[3]), Vertex(v[7], c[3]), Vertex(v[3], c[3]),
-
+        {v[3],col[3]},{v[2],col[3]},{v[6],col[3]},
+        {v[3],col[3]},{v[6],col[3]},{v[7],col[3]},
         // Haut
-        Vertex(v[0], c[4]), Vertex(v[3], c[4]), Vertex(v[7], c[4]),
-        Vertex(v[7], c[4]), Vertex(v[4], c[4]), Vertex(v[0], c[4]),
-
+        {v[3],col[4]},{v[7],col[4]},{v[4],col[4]},
+        {v[3],col[4]},{v[4],col[4]},{v[0],col[4]},
         // Bas
-        Vertex(v[1], c[5]), Vertex(v[2], c[5]), Vertex(v[6], c[5]),
-        Vertex(v[6], c[5]), Vertex(v[5], c[5]), Vertex(v[1], c[5]),
+        {v[1],col[5]},{v[5],col[5]},{v[6],col[5]},
+        {v[1],col[5]},{v[6],col[5]},{v[2],col[5]},
         });
 }
+
 
 static float speed = 0.0001;
 
@@ -129,7 +108,7 @@ int main()
 
     /* ===================================================== */
 
-    glm::vec3 position(1.0f, 0.0f, 5.0f);
+    glm::vec3 position(1.0f, 2.5f, 5.0f);
     glm::vec3 target(0.0f, 0.0f, 0.0f);  
     glm::vec3 up(0.0f, 1.0f, 0.0f);
 
@@ -147,7 +126,9 @@ int main()
 
         renderEngine.updateSimulation();
 
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        
 
         framerateManager.calculateCurrentFramerate();
         framerateManager.displayFramerate();
@@ -176,7 +157,7 @@ int main()
             offsetX -= renderEngine.temporaryGetSimulationSpeed() * renderEngine.temporaryGetDeltaTime();
         }*/
 
-        test(s1);
+        make3DShape(s1);
         s1.initializeShape();
         s1.drawShape(temporaryShader);
 
@@ -184,7 +165,7 @@ int main()
 
         
         //myCamera.applyCameraView(temporaryShader);
-        myCamera.move(temporaryShader, renderEngine.temporaryGetDeltaTime());
+        myCamera.move(temporaryShader, renderEngine.temporaryGetDeltaTime()); // Injecter la camera a quelque pars, prob dans RenderEngine
 
         //myCamera.assignCameraView();
         //myCamera.updateView(temporaryShader);

@@ -32,9 +32,8 @@ out vec4 FragColor;
 
 void main()
 {
-    FragColor = vertexColor;
+    FragColor = vec4(vertexColor.rgb, 1.0);
 }
-
 )";
 
 Shader::Shader() {

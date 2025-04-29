@@ -43,11 +43,12 @@ class RenderEngine {
 		void showStartupInfo()							 { displayHardwareInfo(); }
 			 void displayHardwareInfo()					 { _configuration.displayHardwareInfo(); }
 
-		void initializeRenderSettings()					 { setCurrentContext(); gladLoadOpenGLFunctions(); setCurrentVideoMode(); applyVSyncSetting(false); }
+			 void initializeRenderSettings() { setCurrentContext(); gladLoadOpenGLFunctions(); setCurrentVideoMode(); applyVSyncSetting(false); setOpenGLRenderSettings(); }
 			 void setCurrentContext()					 { glfwMakeContextCurrent(_window); }
 			 void setCurrentVideoMode()					 { _currentVideoMode = glfwGetVideoMode(glfwGetPrimaryMonitor()); }
 			 void gladLoadOpenGLFunctions()				 { gladLoadGLLoader((GLADloadproc)glfwGetProcAddress); }
 			 void applyVSyncSetting(bool enabled = true) { glfwSwapInterval(enabled ? 1 : 0); }
+			 void setOpenGLRenderSettings();
 
 		void configureGLFWWindowSettings()				 { setFramebufferCallback(); initializeUserPointer(); setGLFWWindowHints(); };
 			 void setFramebufferCallback()				 { glfwSetFramebufferSizeCallback(_window, framebufferSizeCallback); }
@@ -58,10 +59,10 @@ class RenderEngine {
 			 void endExecutionTimer()		             { _runtimeTimer.stop(); };
 			 void destroyWindowAndTerminate()		     { glfwDestroyWindow(_window); glfwTerminate(); }
 
-		void handleRenderCycle()						 { processWindowMessages(); swapBuffers(); updateSimulation(); }
-			 void processWindowMessages()				 { glfwPollEvents(); }
+			 void handleRenderCycle()					 { processWindowMessages();  swapBuffers(); updateSimulation(); }
 			 void swapBuffers()							 { glfwSwapBuffers(_window); }
 			 void updateSimulation()					 { _simulationManager.update(); }
+			 void processWindowMessages()				 { glfwPollEvents(); }
 			 void renderShaderFrame();
 
 			 
