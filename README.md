@@ -1,6 +1,69 @@
 # GlassKit
 
-## Description
-GlassKit is a personal project for experimenting with graphics programming. It’s a space where I explore shapes, shaders, and textures while learning and improving.
+## Overview
 
-I’m currently finishing my second year of computer science studies, and there’s still plenty of room for improvement in this project. I welcome any feedback and advice and will take it very seriously to keep improving.
+GlassKit is my personal graphics playground in C++/OpenGL, powered by GLFW, GLAD, and my own utilities. It’s where I prototype shapes, experiment with shaders, and test textures as I refine my skills.
+
+---
+
+## Key Features
+
+- **Lightweight setup** with GLFW & GLAD
+- **Hot-reloadable shaders** for rapid experimentation
+- **Custom texture loader** supporting PNG and JPEG formats
+- **Basic shape rendering**: squares, cubes, spheres
+- **Framebuffer utilities** for post-processing effects (e.g., bloom, blur)
+
+---
+
+## Prerequisites
+
+- A C++17 (or newer) compiler
+- CMake 3.10 or higher
+- Git (for cloning submodules, if any)
+
+---
+
+## Building & Running
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/unrays/GlassKit.git
+   cd GlassKit
+   ```
+2. Create a build directory and compile:
+   ```bash
+   mkdir build && cd build
+   cmake ..
+   make
+   ```
+3. Run the executable:
+   ```bash
+   ./GlassKit
+   ```
+
+---
+
+## Usage
+
+- Modify shader files in the `shaders/` directory; they will reload automatically while the app is running.
+- Drop your textures into `assets/textures/` to load them with the built-in texture loader.
+- Explore the code under `src/renderer/` to understand and extend the rendering pipeline.
+
+---
+
+## Contributing
+
+I’m finishing my second year of computer science studies, and every bit of feedback helps me improve. Feel free to:
+
+- Open an issue to report bugs or suggest new ideas
+- Submit a pull request to add features or enhancements
+- Share shader examples or graphics tips
+
+Thank you for your support—I appreciate every suggestion and take them to heart.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
