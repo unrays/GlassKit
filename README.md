@@ -1,10 +1,10 @@
-# GlassKit
+# Glyzr
 
 ## Overview
 
-GlassKit is my personal graphics playground in C++/OpenGL, powered by GLFW, GLAD, and my own utilities. It’s where I prototype shapes, experiment with shaders, and test textures as I refine my skills.
+Glyzr is my personal graphics playground in C++/OpenGL, powered by GLFW, GLAD, and my own utilities. It’s where I prototype shapes, experiment with shaders, and test textures as I refine my skills.
 
-### Preview of GlassKit in Action
+### Preview of Glyzr in Action
 Here's a preview of what I've been working on. The image showcases a basic scene with custom shapes and shaders:
 
 <img src="https://github.com/user-attachments/assets/4632399f-f180-47f6-b88c-08a827d72992" alt="GlassKit Demo" width="600"/>
