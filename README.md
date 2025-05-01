@@ -47,8 +47,7 @@ GlassKit is my personal graphics playground in C++/OpenGL, powered by GLFW, GLAD
 ## Usage
 
 - Modify shader files in the `shaders/` directory; they will reload automatically while the app is running.
-- Drop your textures into `assets/textures/` to load them with the built-in texture loader.
-- Explore the code under `src/renderer/` to understand and extend the rendering pipeline.
+- Explore the code under `src/` to understand and extend the architecture.
 
 ---
 
