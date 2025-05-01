@@ -11,7 +11,6 @@ Glyzr is my personal graphics playground in C++/OpenGL, powered by GLFW, GLAD, a
 A glimpse of Glyzr in action:
 
 ![Glyzr Demo](https://github.com/user-attachments/assets/4632399f-f180-47f6-b88c-08a827d72992)
-This is just one of the many tests I've done in the project. The goal is to iterate and improve the visual quality with each step.
 
 ---
 
