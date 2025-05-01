@@ -8,8 +8,6 @@ Glyzr is my personal graphics playground in C++/OpenGL, powered by GLFW, GLAD, a
 
 ## Preview
 
-A glimpse of Glyzr in action:
-
 ![Glyzr Demo](https://github.com/user-attachments/assets/4632399f-f180-47f6-b88c-08a827d72992)
 
 ---
