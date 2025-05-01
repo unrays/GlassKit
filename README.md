@@ -3,6 +3,7 @@
 ## Overview
 
 GlassKit is my personal graphics playground in C++/OpenGL, powered by GLFW, GLAD, and my own utilities. It’s where I prototype shapes, experiment with shaders, and test textures as I refine my skills.
+![image](https://github.com/user-attachments/assets/e9d29a47-661b-4774-b266-8214c69de5ea)
 
 ---
 
