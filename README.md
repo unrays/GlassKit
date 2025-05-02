@@ -53,7 +53,7 @@ I’m finishing my second year of computer science studies, and every bit of fee
 - Submit a pull request to add features or enhancements
 - Share shader examples or graphics tips
 
-Thank you for your support—I appreciate every suggestion and take them to heart.
+Thank you for your support! I appreciate every suggestion and take them to heart.
 
 ---
 
