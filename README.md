@@ -10,14 +10,6 @@ Glyzr is my personal graphics playground in C++/OpenGL, powered by GLFW, GLAD, a
 
 ---
 
-## Key Features
-
-- **Lightweight setup** with GLFW & GLAD
-- **Hot-reloadable shaders** for rapid experimentation
-- **Basic shape rendering**: squares, cubes, spheres
-
----
-
 ## Prerequisites
 
 - A C++17 (or newer) compiler
