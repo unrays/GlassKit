@@ -22,8 +22,8 @@ Glyzr is my personal graphics playground in C++/OpenGL, powered by GLFW, GLAD, a
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/unrays/GlassKit.git
-   cd GlassKit
+   git clone https://github.com/unrays/Glyzr.git
+   cd Glyzr
    ```
 2. Create a build directory and compile:
    ```bash
@@ -33,7 +33,7 @@ Glyzr is my personal graphics playground in C++/OpenGL, powered by GLFW, GLAD, a
    ```
 3. Run the executable:
    ```bash
-   ./GlassKit
+   ./Glyzr
    ```
 
 ---
