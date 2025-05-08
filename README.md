@@ -1,5 +1,5 @@
 # Glyzr
-I'm not very proud of my architecture, it's viable for an experiment but it's definitely not something I would present as a technical showcase of my own.
+I'm not very proud of my architecture, it's viable for an experiment but it's certainly not something I would present as a personal technical showcase.
 ## Overview
 
 Glyzr is my personal graphics playground in C++/OpenGL, powered by GLFW, GLAD, and my own utilities. It’s where I prototype shapes, experiment with shaders, and test textures as I refine my skills.
