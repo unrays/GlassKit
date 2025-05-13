@@ -1,12 +1,12 @@
-# Glyzr
+# Glint
 I'm not very proud of my architecture, it's viable for an experiment but it's certainly not something I would present as a personal technical showcase.
 ## Overview
 
-Glyzr is my personal graphics playground in C++/OpenGL, powered by GLFW, GLAD, and my own utilities. It’s where I prototype shapes, experiment with shaders, and test textures as I refine my skills.
+Glint is my personal graphics playground in C++/OpenGL, powered by GLFW, GLAD, and my own utilities. It’s where I prototype shapes, experiment with shaders, and test textures as I refine my skills.
 
 ---
 
-![Glyzr Demo](https://github.com/user-attachments/assets/4632399f-f180-47f6-b88c-08a827d72992)
+![Glint Demo](https://github.com/user-attachments/assets/4632399f-f180-47f6-b88c-08a827d72992)
 
 ---
 
@@ -22,8 +22,8 @@ Glyzr is my personal graphics playground in C++/OpenGL, powered by GLFW, GLAD, a
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/unrays/Glyzr.git
-   cd Glyzr
+   git clone https://github.com/unrays/Glint.git
+   cd Glint
    ```
 2. Create a build directory and compile:
    ```bash
@@ -33,7 +33,7 @@ Glyzr is my personal graphics playground in C++/OpenGL, powered by GLFW, GLAD, a
    ```
 3. Run the executable:
    ```bash
-   ./Glyzr
+   ./Glint
    ```
 
 ---
